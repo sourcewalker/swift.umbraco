@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "MasterLayout.cshtml";
+}
+    <div class="message-overlay display-none">
+        <div class="message-box -close">
+            <p class="close">x</p>
+            <div class="wrapper">
+                <div class="header">We don’t recognise this pack, please make sure the Trebor logo is clearly visible and try again.</div>
+                <div class="text"></div>
+            </div>
+        </div>
+    </div>
+  <section class="hero-section">
+    <div class="content-wrapper">
+      <h1 class="display-none">Cash in a flash</h1><img class="hero-image _unmargin-bt" src="/Resources/images/hero.png" alt="Trebor Cash in a Flash. Snap your pack and win up to £1000"><br><br><br><br>
+      <form id="submit-photo">
+        <input class="display-none" type="file" capture="camera" accept="image/*" id="js-photo-input" name="photo-input">
+        <input type="hidden" value="test" name="test" id="test">
+      </form><img id="test-image" src="" alt=""><a class="button -icon" id="choose-photo" href="#">UPLOAD IMAGE<img src="/Resources/images/upload-icon.png" alt="Upload icon"></a><img class="snapandwin _unmargin-bt" src="/Resources/images/snapandwin.png" alt="Snap your pack and win up to £1000">
+    </div>
+  </section>
+            

@@ -1,0 +1,92 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "MasterLayout.cshtml";
+}
+<div class="message-overlay display-none">
+    <div class="message-box -popup" id="entry-form-country-selector">
+        <p class="text">Select a country</p>
+        <div class="country-container">
+            <div class="flex-wrapper">
+                <div class="country-block" data-country="uk">
+                    <img class="countryflag" src="/Resources/images/uk-flag.png" alt="uk flag">
+                    <p class="countrytext">UK</p>
+                </div>
+                <div class="country-block" data-country="roi">
+                    <img class="countryflag" src="/Resources/images/ie-flag.png" alt="ie flag">
+                    <p class="countrytext">ROI</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="entry-form">
+    <div class="content-wrapper">
+        <div class="wrapper--sm">
+            <h1 class="header">Entry Form</h1>
+            <p class="text">
+                To claim your prize complete the entry form <br class="only--up-md">below. Please ensure all the information provided is correct before submitting your details.
+            </p><a id="revertToCheque" class="button" href="/entry-form-cheque">CLICK HERE FOR CHEQUE</a>
+                <form class="participation-form" id="bank-entry-form" action="#" method="post">
+                    <input class="inputfield js-event-type-in js-event-ab" type="text" name="firstname" placeholder="FIRST NAME" data-require="true" data-type="regex" data-regex-pattern="^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ðß ,.'-]+$" data-event-fieldname="First Name" data-event="form-click" data-category="Form Action" data-action="First Name" data-label="Type In">
+                    <input class="inputfield js-event-type-in js-event-ab" type="text" name="lastname" placeholder="LAST NAME" data-require="true" data-type="regex" data-regex-pattern="^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ðß ,.'-]+$" data-event-fieldname="Last Name" data-event="form-click" data-category="Form Action" data-action="Last Name" data-label="Type In">
+                    <input class="inputfield js-event-type-in js-event-ab js-event-ab-prefilled" type="text" value="@ViewBag.Email" name="email" placeholder="AUTOPOPULATE@EXAMPLE.CO.UK" data-require="true" data-type="regex" data-regex-pattern="^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$" readonly data-event-fieldname="Email Address" data-event="form-click" data-category="Form Action" data-action="Email Address" data-label="Type In">
+                    <input class="inputfield js-event-type-in js-event-ab" id="mobile-uk" type="text" name="mobilePrivate" value="+44"  maxlength="16" placeholder="MOBILE PHONE NUMBER" data-require="true" data-type="regex" data-regex-pattern="^[0-9+]{9,16}$" data-event-fieldname="Phone Number" data-event="form-click" data-category="Form Action" data-action="Phone Number" data-label="Type In">
+                    <input class="inputfield js-event-type-in js-event-ab" id="mobile-roi" type="text" name="mobilePrivate" value="+353"  maxlength="16" placeholder="MOBILE PHONE NUMBER" data-require="true" data-type="regex" data-regex-pattern="^[0-9+]{9,16}$" data-event-fieldname="Phone Number" data-event="form-click" data-category="Form Action" data-action="Phone Number" data-label="Type In">
+                    <input class="inputfield js-event-type-in js-event-ab" type="text" name="accountNumber" placeholder="ACC NO." data-require="true" maxlength="8" data-type="regex" data-regex-pattern="^[0-9]{8}$" data-event-fieldname="Account Number" data-event="form-click" data-category="Form Action" data-action="Account Number" data-label="Type In">
+                    <input class="inputfield js-event-type-in js-event-ab" type="text" name="sortCode" placeholder="SORT CODE" data-require="true" maxlength="6" data-type="regex" data-regex-pattern="^[0-9]{6}$" data-event-fieldname="Sort Code" data-event="form-click" data-category="Form Action" data-action="Sort Code" data-label="Type In">
+                    <input class="inputfield js-event-type-in js-event-ab" id="iban-number" type="text" name="IBAN" placeholder="IBAN NUMBER" maxlength="22" data-require="true" data-type="regex" data-regex-pattern="^([a-zA-Z0-9]){22}$" data-event-fieldname="IBAN NUMBER" data-event="form-click" data-category="Form Action" data-action="IBAN NUMBER" data-label="Type In">
+                    <input class="inputfield js-event-type-in js-event-ab" id="bic-number" type="text" name="BIC" placeholder="BIC NUMBER" maxlength="11" data-require="true" data-type="regex" data-regex-pattern="^([a-zA-Z0-9]){11}$" data-event-fieldname="BIC NUMBER" data-event="form-click" data-category="Form Action" data-action="BIC NUMBER" data-label="Type In">
+                    <input class="inputfield js-event-type-in js-event-ab" type="text" name="street1" placeholder="ADDRESS LINE 1" maxlength="20" data-require="true" data-type="text" data-event-fieldname="Address Line 1" data-event="form-click" data-category="Form Action" data-action="Address Line 1" data-label="Type In">
+                    <input class="inputfield js-event-type-in js-event-ab" type="text" name="street2" placeholder="ADDRESS LINE 2" maxlength="20" data-require="false" data-type="text" data-event-fieldname="Address Line 1" data-event="form-click" data-category="Form Action" data-action="Address Line 2" data-label="Type In">
+                    <input class="inputfield js-event-type-in js-event-ab" type="text" name="city" placeholder="CITY" maxlength="20" data-require="true" data-type="text" data-event-fieldname="City" data-event="form-click" data-category="Form Action" data-action="City" data-label="Type In">
+                    <input class="inputfield js-event-type-in js-event-ab" type="text" name="zipcode" placeholder="POSTCODE" maxlength="8" data-require="true" data-type="text" data-event-fieldname="Postcode" data-event="form-click" data-category="Form Action" data-action="Postcode" data-label="Type In">
+                    <input type="hidden" name="country" value="">
+                    <input type="hidden" name="paymentType" value="BACS" />
+                    <input type="hidden" name="participationId" value="">
+                    <div class="country-container" id="flag-uk">
+                        <div class="flex-wrapper">
+                            <div class="country-block">
+                                <img class="countryflag" src="/Resources/images/uk-flag.png" alt="uk flag">
+                                <p class="countrytext">UK</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="country-container" id="flag-roi">
+                        <div class="flex-wrapper">
+                            <div class="country-block">
+                                <img class="countryflag" src="/Resources/images/ie-flag.png" alt="uk flag">
+                                <p class="countrytext">ROI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="g-recaptcha" id="recaptcha" data-sitekey="6LfDdK4UAAAAAJiK4eKh4qW3TPpPWOkJtR5btIbj" data-callback="submitFormRecaptcha" data-size="invisible" data-badge="inline"></div>
+                    <p class="text" id="text-uk">
+                        If you live in the ROI <a class="-underline" data-country="roi" href="">click here</a>
+                    </p>
+                    <p class="text" id="text-roi">
+                        If you live in the UK <a class="-underline" data-country="uk" href="">click here</a>
+                    </p>
+                    <div class="checkbox-wrapper">
+                        <div class="checkbox-container">
+                            <input class="js-event-type-in js-event-ab" value="true" type="checkbox" id="over18" name="age" data-require="true" data-type="checkbox" data-event-fieldname="Age" data-event="form-click" data-category="Form Action" data-action="Age" data-label="Type In">
+                            <label></label>
+                        </div><span>I am over 18 years old.</span>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <div class="checkbox-container">
+                            <input class="js-event-type-in js-event-ab" value="true" type="checkbox" id="TermsConsent" name="termsConsent" data-require="true" data-type="checkbox" data-event-fieldname="Terms & Conditions" data-event="form-click" data-category="Form Action" data-action="Terms & Conditions" data-label="Type In">
+                            <label></label>
+                        </div><span>
+                            If you agree with the <a data-event="info-click" data-category="Informational Action" data-action="T&Cs" class="-underline js-event-cta" href="/terms-and-conditions">terms and conditions </a>of
+                            this promotion and you would like to participate,
+                            please tick this box.
+                        </span>
+                    </div>
+                    <p class="text">
+                        We value your trust when sharing your personal data with us. We always treat your data in a fair and respectful manner limited to the purpose above mentioned. If you would like to know more about how we handle your data, please read our <a class="-underline -bold js-event-cta" href="https://eu.mondelezinternational.com/privacy-notice?siteId=nzaaZBJAN%2fVI9axg9wmKL7n88yzTk5aqWwTu8qs4dS0%3d" target="_blank" rel="noopener noreferrer" data-event="info-click" data-category="Informational Action" data-action="Privacy Notice">Privacy Notice.</a>
+                    </p><a class="button" id="js-continue-bank">Continue</a>
+                </form>
+        </div>
+    </div>
+</section>
+

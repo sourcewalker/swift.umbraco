@@ -1,0 +1,59 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "MasterLayout.cshtml";
+    var isOpen = (bool)ViewBag.IsOpenHour;
+    var popupClass = isOpen ? "display-none" : string.Empty;
+    var formClass = isOpen ? "block" : "none";
+    var closeButton = isOpen ? string.Empty : "display-none";
+}
+
+<section class="hero-section homepage">
+    <div class="content-wrapper">
+        <h1 class="display-none">Cash in a flash</h1>
+		<picture>
+            <source media="(min-width: 465px)" srcset="/Resources/images/hero.png">
+            <source media="(min-width: 320px)" srcset="/Resources/images/hero-mb.png">
+			<img class="hero-image _unmargin-bt" srcset="/Resources/images/hero-mb.png" alt="hero image">
+        </picture>
+        <div class="message-box -compact @popupClass">
+            <p class="close @closeButton">x</p>
+            <div class="wrapper">
+                <div class="text -bold">This promotion is only open between the hours <br class='only--up-md'> of 8am and 9pm, please come back later!</div>
+            </div>
+        </div>
+        <form method="post" class="participation-form" id="email-entry" novalidate style="display: @formClass">
+            <input class="inputfield" id="email" type="text" name="email" placeholder="ENTER YOUR EMAIL" data-require="true" data-type="regex" data-regex-pattern="^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+            <a class="button -inverted _unmargin-bt" id="js-continue-email">Continue</a>
+        </form>
+        <img class="snapandwin" src="/Resources/images/snapandwin.png" alt="snap and win">
+    </div>
+</section>
+
+<section id="prizes" class="section -background prizes-section">                   
+    <h2 class="title">Prizes</h2>
+    <div class="content-wrapper">
+        <div class="flex-money">
+            <img class="money only--up-md" src="/Resources/images/prize-money-1.png" alt="money">
+            <img class="money-1000s" src="~/Resources/images/over-1000s.png" alt="1000s of cash prizes up for grabs, from £5 to £1000!">
+            <img class="money" src="/Resources/images/prize-money-2.png" alt="money">
+        </div>
+    </div>
+</section>
+
+<section id="how-to-enter" class="section how-to-enter-section">
+    <h2 class="title">HOW TO ENTER</h2>
+    <div class="content-wrapper">
+        <div class="flex-wrapper">
+        <div class="step"><img src="/Resources/images/left-circle.png" alt="buy any pack of Trebor">
+            <p class="text -bold">Buy any pack of Trebor</p>
+        </div>
+        <div class="step"><img src="/Resources/images/middle-circle.png" alt="Take a picture and upload to website">
+            <p class="text -bold">Take a picture and upload to website</p>
+        </div>
+        <div class="step _unmargin-bt-mobile"><img src="/Resources/images/right-circle.png" alt="buy any pack of Trebor">
+            <p class="text -bold">
+                Find out instantly if<br> you've won a cash prize</p>
+        </div>
+        </div>
+    </div>
+</section>

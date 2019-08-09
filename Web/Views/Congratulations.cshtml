@@ -1,0 +1,33 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "MasterLayout.cshtml";
+}
+
+<div class="money-background"></div>
+  <section class="winner-section">
+      <div class="content-wrapper">
+          <h1 class="header-big">CONGRATULATIONS!</h1>
+          <img class="text-image" src="/Resources/images/money/you.png" alt="You've won">
+          @*<img class="money-image" src="/Resources/images/money/ViewBag.PrizeName.png" alt="£ @ViewBag.PrizeName">*@
+          <img class="money-image" src="@($"/Resources/images/money/{@ViewBag.PrizeName}.png")" alt="£ @ViewBag.PrizeName">
+          <div class="modal-area">
+              @*<div id="modal"><img class="close" src="/Resources/images/delete.png" alt="">
+              <p class="modal-header">Choose your country</p>
+              <div class="country-container">
+                <div class="flex-wrapper">
+                  <div class="country-block"><img class="countryflag" src="/Resources/images/uk-flag.png" alt="uk flag">
+                    <p class="countrytext">UK</p>
+                  </div>
+                  <div class="country-block"><img class="countryflag" src="/Resources/images/ie-flag.png" alt="ie flag">
+                    <p class="countrytext">ROI</p>
+                  </div>
+                </div>
+              </div>
+            </div>*@
+              <p class="text">Please let us know how you would like to receive your prize.</p>
+              <a id="paymentTypeBank" class="button" data-option="bank" href="/entry-form-bacs">BANK TRANSFER</a>
+              <a id="paymentTypeCheque" class="button" data-option="cheque" href="/entry-form-cheque">CHEQUE</a>
+          </div>
+      </div>
+  </section>
+
