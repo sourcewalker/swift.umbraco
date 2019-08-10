@@ -17,7 +17,7 @@ namespace Swift.Umbraco.Web.Controllers.Render
             _participationService = participationService;
         }
 
-        public ActionResult LogoScan(RenderModel model)
+        public ActionResult Participate(RenderModel model)
         {
             if (ParticipationId == default || 
                !_participationService.CheckStatus(ParticipationId, JourneyStatus.EMAIL_VALIDATED))
@@ -40,7 +40,7 @@ namespace Swift.Umbraco.Web.Controllers.Render
             return base.Index(model);
         }
 
-        public ActionResult EntryFormBacs(RenderModel model)
+        public ActionResult EntryForm(RenderModel model)
         {
             // Code for testing purpose
             if (Request.QueryString["token"] == "EVG$wLc@HC4XVb*t9")
@@ -56,25 +56,6 @@ namespace Swift.Umbraco.Web.Controllers.Render
                 return Redirect("/");
             }
 
-            ViewBag.Email = _participationService.GetEmail(ParticipationId);
-            return base.Index(model);
-        }
-
-        public ActionResult EntryFormCheque(RenderModel model)
-        {
-            // Code for testing purpose
-            if (Request.QueryString["token"] == "EVG$wLc@HC4XVb*t9")
-            {
-                ViewBag.Email = "test.proximity@proximitybbdo.fr";
-                return base.Index(model);
-            }
-            // End - Testing
-
-            if (ParticipationId == default ||
-               !_participationService.CheckStatus(ParticipationId, JourneyStatus.WON_CHECKED))
-            {
-                return Redirect("/");
-            }
             ViewBag.Email = _participationService.GetEmail(ParticipationId);
             return base.Index(model);
         }

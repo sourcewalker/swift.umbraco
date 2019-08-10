@@ -6,7 +6,6 @@ namespace Swift.Umbraco.Web.Infrastructure.Validation
 {
     public class Captcha : ValidationAttribute
     {
-
         protected override ValidationResult IsValid(
             object value,
             ValidationContext validationContext)
