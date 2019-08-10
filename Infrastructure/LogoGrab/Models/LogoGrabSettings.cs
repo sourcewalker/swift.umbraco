@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.LogoGrab.Models
+﻿namespace Swift.Umbraco.Infrastructure.LogoGrab.Models
 {
     public class LogoGrabSettings
     {

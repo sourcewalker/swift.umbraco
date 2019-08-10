@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DAL.Interfaces
+namespace Swift.Umbraco.DAL.Interfaces
 {
     public interface IGenericManager<TEntityType> where TEntityType : class
     {

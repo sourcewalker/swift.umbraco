@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Hangfire
+﻿namespace Swift.Umbraco.Infrastructure.Hangfire
 {
     public class CrmResponse
     {

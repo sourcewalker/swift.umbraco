@@ -1,11 +1,11 @@
-﻿using DAL.Interfaces;
-using Models.Domain;
-using Models.DTO;
-using Models.Mapping.Helper;
+﻿using Swift.Umbraco.DAL.Interfaces;
+using Swift.Umbraco.Models.Domain;
+using Swift.Umbraco.Models.DTO;
+using Swift.Umbraco.Models.Mapping.Helper;
 using System;
 using System.Collections.Generic;
 
-namespace DAL.Entities
+namespace Swift.Umbraco.DAL.Entities
 {
     public class PrizeManager : GenericManager<Prize>, IPrizeManager
     {

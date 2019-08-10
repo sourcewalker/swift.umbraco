@@ -1,14 +1,14 @@
-﻿using Business.Interfaces;
-using DAL.Interfaces;
-using Models.DTO;
+﻿using Swift.Umbraco.Business.Interfaces;
+using Swift.Umbraco.DAL.Interfaces;
+using Swift.Umbraco.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Business.Helper;
+using Swift.Umbraco.Business.Helper;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
-namespace Business.Configuration
+namespace Swift.Umbraco.Business.Configuration
 {
     public class ConfigurationService : IConfigurationService
     {

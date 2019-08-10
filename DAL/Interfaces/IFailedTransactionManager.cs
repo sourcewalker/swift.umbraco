@@ -1,4 +1,4 @@
-﻿namespace DAL.Interfaces
+﻿namespace Swift.Umbraco.DAL.Interfaces
 {
     public interface IFailedTransactionManager
     {

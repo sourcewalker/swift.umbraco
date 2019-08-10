@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Models.DTO
+namespace Swift.Umbraco.Models.DTO
 {
     public class InstantWinMomentDto
     {

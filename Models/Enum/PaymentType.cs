@@ -1,4 +1,4 @@
-﻿namespace Models.Enum
+﻿namespace Swift.Umbraco.Models.Enum
 {
     public enum PaymentType
     {

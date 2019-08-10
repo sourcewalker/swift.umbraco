@@ -1,6 +1,6 @@
-﻿using Models.DTO;
+﻿using Swift.Umbraco.Models.DTO;
 
-namespace Business.Interfaces
+namespace Swift.Umbraco.Business.Interfaces
 {
     public interface IInstantWinService
     {

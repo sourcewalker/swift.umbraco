@@ -1,9 +1,9 @@
-﻿using Infrastructure.InstantWin.Interfaces;
+﻿using Swift.Umbraco.Infrastructure.InstantWin.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Infrastructure.InstantWin.Generator.Algorithms
+namespace Swift.Umbraco.Infrastructure.InstantWin.Generator.Algorithms
 {
     public class DivideAndConquerAlgorithm : IGenerator
     {

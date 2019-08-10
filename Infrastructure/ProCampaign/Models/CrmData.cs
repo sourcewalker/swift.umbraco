@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.ProCampaign.Models
+namespace Swift.Umbraco.Infrastructure.ProCampaign.Models
 {
     public class CrmData
     {

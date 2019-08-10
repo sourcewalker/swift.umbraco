@@ -1,9 +1,9 @@
-﻿using Models.Enum;
+﻿using Swift.Umbraco.Models.Enum;
 using Newtonsoft.Json;
 using System;
 using System.Dynamic;
 
-namespace Infrastructure.ProCampaign.Models
+namespace Swift.Umbraco.Infrastructure.ProCampaign.Models
 {
     public class ProCampaignData
     {

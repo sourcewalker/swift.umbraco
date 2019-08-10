@@ -1,7 +1,7 @@
-﻿using Models.Enum;
+﻿using Swift.Umbraco.Models.Enum;
 using System;
 
-namespace DAL.Interfaces
+namespace Swift.Umbraco.DAL.Interfaces
 {
     public interface IConsumerManager
     {

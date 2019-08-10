@@ -1,11 +1,11 @@
 ﻿using System.Configuration;
 using System.Threading.Tasks;
-using Business.Interfaces;
-using Infrastructure.Interfaces;
-using Infrastructure.ProCampaign.Models;
-using Models.DTO;
+using Swift.Umbraco.Business.Interfaces;
+using Swift.Umbraco.Infrastructure.Interfaces;
+using Swift.Umbraco.Infrastructure.ProCampaign.Models;
+using Swift.Umbraco.Models.DTO;
 
-namespace Business.Journey
+namespace Swift.Umbraco.Business.Journey
 {
     public class SynchronizationService : ISynchronizationService
     {

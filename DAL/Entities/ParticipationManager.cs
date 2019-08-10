@@ -1,14 +1,14 @@
-﻿using DAL.Interfaces;
-using Models.Domain;
-using Models.DTO;
-using Models.Enum;
-using Models.Mapping.Helper;
-using Models.Utility;
+﻿using Swift.Umbraco.DAL.Interfaces;
+using Swift.Umbraco.Models.Domain;
+using Swift.Umbraco.Models.DTO;
+using Swift.Umbraco.Models.Enum;
+using Swift.Umbraco.Models.Mapping.Helper;
+using Swift.Umbraco.Models.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DAL.Entities
+namespace Swift.Umbraco.DAL.Entities
 {
     public class ParticipationManager : GenericManager<Participation>, IParticipationManager
     {

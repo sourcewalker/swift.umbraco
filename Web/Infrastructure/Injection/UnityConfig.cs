@@ -2,7 +2,7 @@ using System;
 
 using Unity;
 
-namespace Trebor.Cash.In.Flash
+namespace Swift.Umbraco.Web
 {
     /// <summary>
     /// Specifies the Unity configuration for the main container.

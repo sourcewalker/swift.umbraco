@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.DTO
+namespace Swift.Umbraco.Models.DTO
 {
     public class CrmConfiguration
     {

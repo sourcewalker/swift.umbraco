@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Trebor.Cash.In.Flash.Models
+namespace Swift.Umbraco.Web.Models
 {
     public class EmailRequest
     {

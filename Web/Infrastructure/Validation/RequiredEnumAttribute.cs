@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Trebor.Cash.In.Flash.Infrastructure.Validation
+namespace Swift.Umbraco.Web.Infrastructure.Validation
 {
     public class RequiredEnum : RequiredAttribute
     {

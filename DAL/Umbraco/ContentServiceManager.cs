@@ -1,7 +1,7 @@
-﻿using DAL.Interfaces;
+﻿using Swift.Umbraco.DAL.Interfaces;
 using Umbraco.Core.Services;
 
-namespace DAL.Umbraco
+namespace Swift.Umbraco.DAL.Umbraco
 {
     public class ContentServiceManager : IContentServiceManager
     {

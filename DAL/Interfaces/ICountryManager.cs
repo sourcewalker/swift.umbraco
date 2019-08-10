@@ -1,7 +1,7 @@
-﻿using Models.DTO;
-using Models.Enum;
+﻿using Swift.Umbraco.Models.DTO;
+using Swift.Umbraco.Models.Enum;
 
-namespace DAL.Interfaces
+namespace Swift.Umbraco.DAL.Interfaces
 {
     public interface ICountryManager
     {

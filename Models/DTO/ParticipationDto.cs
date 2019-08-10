@@ -1,7 +1,7 @@
-﻿using Models.Domain;
+﻿using Swift.Umbraco.Models.Domain;
 using System;
 
-namespace Models.DTO
+namespace Swift.Umbraco.Models.DTO
 {
     public class ParticipationDto
     {

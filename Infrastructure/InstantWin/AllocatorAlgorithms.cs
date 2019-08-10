@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.InstantWin
+﻿namespace Swift.Umbraco.Infrastructure.InstantWin
 {
     public enum AllocatorAlgorithms
     {

@@ -1,8 +1,8 @@
-﻿using Models.Domain;
-using Models.DTO;
+﻿using Swift.Umbraco.Models.Domain;
+using Swift.Umbraco.Models.DTO;
 using System.Collections.Generic;
 
-namespace Models.Mapping.Helper
+namespace Swift.Umbraco.Models.Mapping.Helper
 {
     public static class FailedTransactionMapper
     {

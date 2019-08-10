@@ -1,10 +1,10 @@
-﻿using Business.Interfaces;
+﻿using Swift.Umbraco.Business.Interfaces;
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Umbraco.Web.Models;
 
-namespace Trebor.Cash.In.Flash.Controllers.Render
+namespace Swift.Umbraco.Web.Controllers.Render
 {
     public class HomepageController : BaseController
     {

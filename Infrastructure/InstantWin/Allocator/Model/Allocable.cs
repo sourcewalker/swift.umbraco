@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Infrastructure.InstantWin.Allocator.Model
+namespace Swift.Umbraco.Infrastructure.InstantWin.Allocator.Model
 {
     public class Allocable
     {

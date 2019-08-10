@@ -1,8 +1,8 @@
-﻿using Infrastructure.InstantWin.Allocator.Model;
+﻿using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Model;
 using System;
 using System.Collections.Generic;
 
-namespace Infrastructure.InstantWin.Interfaces
+namespace Swift.Umbraco.Infrastructure.InstantWin.Interfaces
 {
     public interface IAllocator
     {

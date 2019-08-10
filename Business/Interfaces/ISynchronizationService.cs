@@ -1,7 +1,7 @@
-﻿using Models.DTO;
+﻿using Swift.Umbraco.Models.DTO;
 using System.Threading.Tasks;
 
-namespace Business.Interfaces
+namespace Swift.Umbraco.Business.Interfaces
 {
     public interface ISynchronizationService
     {

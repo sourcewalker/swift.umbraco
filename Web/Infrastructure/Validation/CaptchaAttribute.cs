@@ -1,8 +1,8 @@
-﻿using Business.Interfaces;
+﻿using Swift.Umbraco.Business.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Http;
 
-namespace Trebor.Cash.In.Flash.Infrastructure.Validation
+namespace Swift.Umbraco.Web.Infrastructure.Validation
 {
     public class Captcha : ValidationAttribute
     {

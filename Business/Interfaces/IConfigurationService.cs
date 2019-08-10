@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Models.DTO;
+using Swift.Umbraco.Models.DTO;
 using Umbraco.Core.Models;
 
-namespace Business.Interfaces
+namespace Swift.Umbraco.Business.Interfaces
 {
     public interface IConfigurationService
     {

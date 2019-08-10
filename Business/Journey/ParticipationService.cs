@@ -1,11 +1,11 @@
-﻿using Business.Interfaces;
-using DAL.Interfaces;
-using Models.DTO;
-using Models.Enum;
+﻿using Swift.Umbraco.Business.Interfaces;
+using Swift.Umbraco.DAL.Interfaces;
+using Swift.Umbraco.Models.DTO;
+using Swift.Umbraco.Models.Enum;
 using System;
 using System.Threading.Tasks;
 
-namespace Business.Journey
+namespace Swift.Umbraco.Business.Journey
 {
     public class ParticipationService : IParticipationService
     {

@@ -1,12 +1,12 @@
-﻿using Infrastructure.InstantWin.Allocator.Factory;
-using Infrastructure.InstantWin.Allocator.Model;
-using Infrastructure.InstantWin.Generator.Factory;
-using Infrastructure.Interfaces;
-using Models.Domain;
+﻿using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Factory;
+using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Model;
+using Swift.Umbraco.Infrastructure.InstantWin.Generator.Factory;
+using Swift.Umbraco.Infrastructure.Interfaces;
+using Swift.Umbraco.Models.Domain;
 using System;
 using System.Collections.Generic;
 
-namespace Infrastructure.InstantWin.Generator
+namespace Swift.Umbraco.Infrastructure.InstantWin.Generator
 {
     public class InstantWinProvider : IInstantWinMomentProvider
     {

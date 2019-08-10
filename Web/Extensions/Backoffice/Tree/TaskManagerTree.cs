@@ -3,7 +3,7 @@ using System.Text;
 using umbraco.businesslogic;
 using umbraco.cms.presentation.Trees;
 
-namespace Trebor.Cash.In.Flash.Extensions.Backoffice.Tree
+namespace Swift.Umbraco.Web.Extensions.Backoffice.Tree
 {
     [Tree("tools", "taskManager", "Task Manager", "icon-shuffle", "icon-squiggly-line", sortOrder: 6)]
     public class TaskManagerTree : BaseTree

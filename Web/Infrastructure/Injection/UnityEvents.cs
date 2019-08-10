@@ -1,16 +1,16 @@
-﻿using Business.Configuration;
-using Business.Interfaces;
-using Business.Journey;
-using Business.Validation;
-using DAL.Entities;
-using DAL.Interfaces;
-using DAL.Umbraco;
-using Infrastructure.Captcha.Provider;
-using Infrastructure.Hangfire;
-using Infrastructure.InstantWin.Generator;
-using Infrastructure.Interfaces;
-using Infrastructure.LogoGrab.Provider;
-using Infrastructure.ProCampaign.Provider;
+﻿using Swift.Umbraco.Business.Configuration;
+using Swift.Umbraco.Business.Interfaces;
+using Swift.Umbraco.Business.Journey;
+using Swift.Umbraco.Business.Validation;
+using Swift.Umbraco.DAL.Entities;
+using Swift.Umbraco.DAL.Interfaces;
+using Swift.Umbraco.DAL.Umbraco;
+using Swift.Umbraco.Infrastructure.Captcha.Provider;
+using Swift.Umbraco.Infrastructure.Hangfire;
+using Swift.Umbraco.Infrastructure.InstantWin.Generator;
+using Swift.Umbraco.Infrastructure.Interfaces;
+using Swift.Umbraco.Infrastructure.LogoGrab.Provider;
+using Swift.Umbraco.Infrastructure.ProCampaign.Provider;
 using System.Web.Http;
 using System.Web.Mvc;
 using Umbraco.Core;
@@ -28,7 +28,7 @@ using Unity.RegistrationByConvention;
 using MVC = Umbraco.Web.Mvc;
 using WebAPI = Umbraco.Web.WebApi;
 
-namespace Trebor.Cash.In.Flash
+namespace Swift.Umbraco.Web
 {
     public class UnityEvents : IApplicationEventHandler
     {

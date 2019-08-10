@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DAL.Interfaces;
-using Models.Domain;
+using Swift.Umbraco.DAL.Interfaces;
+using Swift.Umbraco.Models.Domain;
 using Umbraco.Core;
 using Umbraco.Core.Persistence;
 using Umbraco.Core.Persistence.SqlSyntax;
 
-namespace DAL.Entities
+namespace Swift.Umbraco.DAL.Entities
 {
     public class GenericManager<TEntityType> : IGenericManager<TEntityType> where TEntityType : EntityBase
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Umbraco.Web;
 
-namespace Trebor.Cash.In.Flash
+namespace Swift.Umbraco.Web
 {
     public class WebApplication : UmbracoApplication
     {

@@ -1,10 +1,10 @@
-﻿using Infrastructure.InstantWin.Allocator.Model;
-using Infrastructure.InstantWin.Interfaces;
+﻿using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Model;
+using Swift.Umbraco.Infrastructure.InstantWin.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Infrastructure.InstantWin.Allocator.Algorithms
+namespace Swift.Umbraco.Infrastructure.InstantWin.Allocator.Algorithms
 {
     public class WeightedAlgorithm : IAllocator
     {

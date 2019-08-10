@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using Models.Mapping;
+using Swift.Umbraco.Models.Mapping;
 using Umbraco.Core;
 using Umbraco.Core.Models.Mapping;
 
-namespace Trebor.Cash.In.Flash
+namespace Swift.Umbraco.Web
 {
     public class AutoMapperHandler : MapperConfiguration
     {

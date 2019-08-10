@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Infrastructure.InstantWin
+namespace Swift.Umbraco.Infrastructure.InstantWin
 {
     public struct ProviderConfiguration
     {

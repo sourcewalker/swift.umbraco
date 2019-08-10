@@ -3,10 +3,10 @@ using System.Web.Mvc;
 
 using Unity.AspNet.Mvc;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Trebor.Cash.In.Flash.UnityMvcActivator), nameof(Trebor.Cash.In.Flash.UnityMvcActivator.Start))]
-[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(Trebor.Cash.In.Flash.UnityMvcActivator), nameof(Trebor.Cash.In.Flash.UnityMvcActivator.Shutdown))]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Swift.Umbraco.Web.UnityMvcActivator), nameof(Swift.Umbraco.Web.UnityMvcActivator.Start))]
+[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(Swift.Umbraco.Web.UnityMvcActivator), nameof(Swift.Umbraco.Web.UnityMvcActivator.Shutdown))]
 
-namespace Trebor.Cash.In.Flash
+namespace Swift.Umbraco.Web
 {
     /// <summary>
     /// Provides the bootstrapping for integrating Unity with ASP.NET MVC.

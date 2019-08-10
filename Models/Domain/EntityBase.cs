@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Umbraco.Core.Persistence.DatabaseAnnotations;
 
-namespace Models.Domain
+namespace Swift.Umbraco.Models.Domain
 {
     public class EntityBase
     {

@@ -1,11 +1,11 @@
-﻿using DAL.Interfaces;
-using Models.Domain;
-using Models.Enum;
+﻿using Swift.Umbraco.DAL.Interfaces;
+using Swift.Umbraco.Models.Domain;
+using Swift.Umbraco.Models.Enum;
 using System;
 using System.Linq;
 using Umbraco.Core.Persistence;
 
-namespace DAL.Entities
+namespace Swift.Umbraco.DAL.Entities
 {
     public class ConsumerManager : GenericManager<Consumer>, IConsumerManager
     {

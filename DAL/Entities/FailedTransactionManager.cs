@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Interfaces;
-using Models.Domain;
+using Swift.Umbraco.DAL.Interfaces;
+using Swift.Umbraco.Models.Domain;
 
-namespace DAL.Entities
+namespace Swift.Umbraco.DAL.Entities
 {
     public class FailedTransactionManager : GenericManager<FailedTransaction>, IFailedTransactionManager
     {

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Models.Domain;
-using Models.DTO;
+using Swift.Umbraco.Models.Domain;
+using Swift.Umbraco.Models.DTO;
 
-namespace Models.Mapping
+namespace Swift.Umbraco.Models.Mapping
 {
     public class DomainMapperProfile : Profile
     {

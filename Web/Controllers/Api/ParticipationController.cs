@@ -1,6 +1,6 @@
-﻿using Business.Interfaces;
-using Models.DTO;
-using Models.Enum;
+﻿using Swift.Umbraco.Business.Interfaces;
+using Swift.Umbraco.Models.DTO;
+using Swift.Umbraco.Models.Enum;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -10,11 +10,11 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using Trebor.Cash.In.Flash.Extensions.Storage;
-using Trebor.Cash.In.Flash.Models;
+using Swift.Umbraco.Web.Extensions.Storage;
+using Swift.Umbraco.Web.Models;
 using Umbraco.Web.WebApi;
 
-namespace Trebor.Cash.In.Flash.Controllers.Api
+namespace Swift.Umbraco.Web.Controllers.Api
 {
     public class ParticipationController : UmbracoApiController
     {

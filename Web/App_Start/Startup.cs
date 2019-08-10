@@ -1,9 +1,10 @@
 ﻿using Hangfire;
+using Swift.Umbraco.Web.Infrastructure.Filters;
 using Owin;
-using Trebor.Cash.In.Flash.Infrastructure.Filters;
 using Umbraco.Web;
+using UmbracoCore = Umbraco.Core;
 
-namespace Trebor.Cash.In.Flash
+namespace Swift.Umbraco.Web
 {
     public class Startup : UmbracoDefaultOwinStartup
     {
@@ -11,7 +12,7 @@ namespace Trebor.Cash.In.Flash
         {
             base.Configuration(app);
 
-            var connectionString = Umbraco.Core.ApplicationContext.Current.DatabaseContext.ConnectionString;
+            var connectionString = UmbracoCore.ApplicationContext.Current.DatabaseContext.ConnectionString;
             GlobalConfiguration.Configuration.UseSqlServerStorage(connectionString);
 
             var dashboardOptions = new DashboardOptions

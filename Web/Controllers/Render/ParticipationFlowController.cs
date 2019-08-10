@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
-using Business.Interfaces;
-using Models.Enum;
+using Swift.Umbraco.Business.Interfaces;
+using Swift.Umbraco.Models.Enum;
 using Umbraco.Web.Models;
 
-namespace Trebor.Cash.In.Flash.Controllers.Render
+namespace Swift.Umbraco.Web.Controllers.Render
 {
     public class ParticipationFlowController : BaseController
     {

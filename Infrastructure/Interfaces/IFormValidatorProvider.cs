@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Interfaces
+﻿namespace Swift.Umbraco.Infrastructure.Interfaces
 {
     public interface IFormValidatorProvider
     {

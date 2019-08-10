@@ -1,7 +1,7 @@
-﻿using Infrastructure.InstantWin.Generator.Algorithms;
-using Infrastructure.InstantWin.Interfaces;
+﻿using Swift.Umbraco.Infrastructure.InstantWin.Generator.Algorithms;
+using Swift.Umbraco.Infrastructure.InstantWin.Interfaces;
 
-namespace Infrastructure.InstantWin.Generator.Factory
+namespace Swift.Umbraco.Infrastructure.InstantWin.Generator.Factory
 {
     public static class GeneratorFactory
     {

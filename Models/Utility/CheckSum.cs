@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace Models.Utility
+namespace Swift.Umbraco.Models.Utility
 {
     public class CheckSum
     {

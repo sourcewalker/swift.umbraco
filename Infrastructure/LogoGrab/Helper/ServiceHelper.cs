@@ -1,11 +1,11 @@
-﻿using Infrastructure.LogoGrab.Models;
+﻿using Swift.Umbraco.Infrastructure.LogoGrab.Models;
 using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Infrastructure.LogoGrab.Helper
+namespace Swift.Umbraco.Infrastructure.LogoGrab.Helper
 {
     public static class ServiceHelper
     {

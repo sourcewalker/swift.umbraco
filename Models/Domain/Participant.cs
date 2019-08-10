@@ -2,7 +2,7 @@
 using Umbraco.Core.Persistence;
 using Umbraco.Core.Persistence.DatabaseAnnotations;
 
-namespace Models.Domain
+namespace Swift.Umbraco.Models.Domain
 {
     [TableName("Participant")]
     [PrimaryKey("Id", autoIncrement = false)]

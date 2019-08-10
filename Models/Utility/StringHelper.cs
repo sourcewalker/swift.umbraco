@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using System.Security.Cryptography;
 
-namespace Models.Utility
+namespace Swift.Umbraco.Models.Utility
 {
     public static class StringHelper
     {

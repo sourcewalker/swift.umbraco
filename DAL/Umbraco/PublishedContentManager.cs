@@ -1,9 +1,9 @@
-﻿using DAL.Interfaces;
+﻿using Swift.Umbraco.DAL.Interfaces;
 using System.Collections.Generic;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
-namespace DAL.Umbraco
+namespace Swift.Umbraco.DAL.Umbraco
 {
     public class PublishedContentManager : IPublishedContentManager
     {

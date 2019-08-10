@@ -1,14 +1,14 @@
-﻿using Business.Interfaces;
-using DAL.Interfaces;
-using Infrastructure.Interfaces;
-using Infrastructure.LogoGrab.Models;
-using Models.Enum;
+﻿using Swift.Umbraco.Business.Interfaces;
+using Swift.Umbraco.DAL.Interfaces;
+using Swift.Umbraco.Infrastructure.Interfaces;
+using Swift.Umbraco.Infrastructure.LogoGrab.Models;
+using Swift.Umbraco.Models.Enum;
 using System;
 using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Business.Validation
+namespace Swift.Umbraco.Business.Validation
 {
     public class ValidationService : IValidationService
     {

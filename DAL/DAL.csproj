@@ -7,8 +7,8 @@
     <ProjectGuid>{6BF61743-B5B5-4B1D-84A3-5903FC60521A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DAL</RootNamespace>
-    <AssemblyName>DAL</AssemblyName>
+    <RootNamespace>Swift.Umbraco.DAL</RootNamespace>
+    <AssemblyName>Swift.Umbraco.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

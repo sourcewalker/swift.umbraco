@@ -7,8 +7,8 @@
     <ProjectGuid>{ADB00176-A4F3-40C8-9880-131264B24A20}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Business</RootNamespace>
-    <AssemblyName>Business</AssemblyName>
+    <RootNamespace>Swift.Umbraco.Business</RootNamespace>
+    <AssemblyName>Swift.Umbraco.Business</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

@@ -1,13 +1,13 @@
-﻿using Business.Interfaces;
-using Models.DTO;
+﻿using Swift.Umbraco.Business.Interfaces;
+using Swift.Umbraco.Models.DTO;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Mvc;
-using Trebor.Cash.In.Flash.Extensions.Storage;
-using Trebor.Cash.In.Flash.Models;
+using Swift.Umbraco.Web.Extensions.Storage;
+using Swift.Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
 
-namespace Trebor.Cash.In.Flash.Controllers.Surface
+namespace Swift.Umbraco.Web.Controllers.Surface
 {
     public class InstantWinController : SurfaceController
     {

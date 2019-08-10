@@ -1,10 +1,10 @@
-﻿using Infrastructure.Hangfire;
-using Infrastructure.ProCampaign.Models;
-using Models.DTO;
+﻿using Swift.Umbraco.Infrastructure.Hangfire;
+using Swift.Umbraco.Infrastructure.ProCampaign.Models;
+using Swift.Umbraco.Models.DTO;
 using System;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Interfaces
+namespace Swift.Umbraco.Infrastructure.Interfaces
 {
     public interface ISchedulerProvider
     {

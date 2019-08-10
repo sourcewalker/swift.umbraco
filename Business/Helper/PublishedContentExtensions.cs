@@ -2,7 +2,7 @@
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
-namespace Business.Helper
+namespace Swift.Umbraco.Business.Helper
 {
     public static class PublishedContentExtensions
     {

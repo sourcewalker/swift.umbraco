@@ -1,7 +1,7 @@
-﻿using Models.DTO;
+﻿using Swift.Umbraco.Models.DTO;
 using System;
 
-namespace DAL.Interfaces
+namespace Swift.Umbraco.DAL.Interfaces
 {
     public interface IParticipantManager
     {

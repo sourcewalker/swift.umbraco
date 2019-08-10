@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Infrastructure.ProCampaign.Models
+namespace Swift.Umbraco.Infrastructure.ProCampaign.Models
 {
     public class ProCampaignSettings
     {

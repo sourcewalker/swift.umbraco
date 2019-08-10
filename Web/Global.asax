@@ -1,2 +1,2 @@
-﻿<%@ Application Inherits="Trebor.Cash.In.Flash.WebApplication" Language="C#" %>
+﻿<%@ Application Inherits="Swift.Umbraco.Web.WebApplication" Language="C#" %>
           

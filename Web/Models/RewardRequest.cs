@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Trebor.Cash.In.Flash.Infrastructure.Validation;
+using Swift.Umbraco.Web.Infrastructure.Validation;
 
-namespace Trebor.Cash.In.Flash.Models
+namespace Swift.Umbraco.Web.Models
 {
     public class RewardRequest
     {

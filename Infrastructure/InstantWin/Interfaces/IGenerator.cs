@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Infrastructure.InstantWin.Interfaces
+namespace Swift.Umbraco.Infrastructure.InstantWin.Interfaces
 {
     public interface IGenerator
     {

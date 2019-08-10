@@ -1,7 +1,7 @@
-﻿using Infrastructure.Captcha.Helper;
-using Infrastructure.Interfaces;
+﻿using Swift.Umbraco.Infrastructure.Captcha.Helper;
+using Swift.Umbraco.Infrastructure.Interfaces;
 
-namespace Infrastructure.Captcha.Provider
+namespace Swift.Umbraco.Infrastructure.Captcha.Provider
 {
     public class CaptchaProvider : IFormValidatorProvider
     {

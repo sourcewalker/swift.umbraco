@@ -1,7 +1,7 @@
-﻿using Models.Enum;
+﻿using Swift.Umbraco.Models.Enum;
 using System;
 
-namespace Models.DTO
+namespace Swift.Umbraco.Models.DTO
 {
     public class CrmDto
     {

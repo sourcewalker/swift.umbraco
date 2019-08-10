@@ -1,9 +1,9 @@
-﻿using Models.DTO;
-using Models.Enum;
+﻿using Swift.Umbraco.Models.DTO;
+using Swift.Umbraco.Models.Enum;
 using System;
 using System.Threading.Tasks;
 
-namespace Business.Interfaces
+namespace Swift.Umbraco.Business.Interfaces
 {
     public interface IParticipationService
     {

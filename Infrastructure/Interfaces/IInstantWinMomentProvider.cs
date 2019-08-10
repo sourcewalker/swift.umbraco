@@ -1,9 +1,9 @@
-﻿using Infrastructure.InstantWin.Allocator.Model;
-using Models.Domain;
+﻿using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Model;
+using Swift.Umbraco.Models.Domain;
 using System;
 using System.Collections.Generic;
 
-namespace Infrastructure.Interfaces
+namespace Swift.Umbraco.Infrastructure.Interfaces
 {
     public interface IInstantWinMomentProvider
     {

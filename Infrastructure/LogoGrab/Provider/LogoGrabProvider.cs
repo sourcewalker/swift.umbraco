@@ -1,9 +1,9 @@
-﻿using Infrastructure.Interfaces;
-using Infrastructure.LogoGrab.Helper;
-using Infrastructure.LogoGrab.Models;
+﻿using Swift.Umbraco.Infrastructure.Interfaces;
+using Swift.Umbraco.Infrastructure.LogoGrab.Helper;
+using Swift.Umbraco.Infrastructure.LogoGrab.Models;
 using System.Threading.Tasks;
 
-namespace Infrastructure.LogoGrab.Provider
+namespace Swift.Umbraco.Infrastructure.LogoGrab.Provider
 {
     public class LogoGrabProvider : ILogoValidatorProvider
     {

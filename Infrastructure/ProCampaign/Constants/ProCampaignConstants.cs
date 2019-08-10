@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.ProCampaign.Constants
+namespace Swift.Umbraco.Infrastructure.ProCampaign.Constants
 {
     internal struct ProCampaignConstants
     {

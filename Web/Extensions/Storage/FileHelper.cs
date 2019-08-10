@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace Trebor.Cash.In.Flash.Extensions.Storage
+namespace Swift.Umbraco.Web.Extensions.Storage
 {
     public static class FileHelper
     {

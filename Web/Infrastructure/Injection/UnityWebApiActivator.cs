@@ -2,10 +2,10 @@ using System.Web.Http;
 
 using Unity.AspNet.WebApi;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Trebor.Cash.In.Flash.UnityWebApiActivator), nameof(Trebor.Cash.In.Flash.UnityWebApiActivator.Start))]
-[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(Trebor.Cash.In.Flash.UnityWebApiActivator), nameof(Trebor.Cash.In.Flash.UnityWebApiActivator.Shutdown))]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Swift.Umbraco.Web.UnityWebApiActivator), nameof(Swift.Umbraco.Web.UnityWebApiActivator.Start))]
+[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(Swift.Umbraco.Web.UnityWebApiActivator), nameof(Swift.Umbraco.Web.UnityWebApiActivator.Shutdown))]
 
-namespace Trebor.Cash.In.Flash
+namespace Swift.Umbraco.Web
 {
     /// <summary>
     /// Provides the bootstrapping for integrating Unity with WebApi when it is hosted in ASP.NET.

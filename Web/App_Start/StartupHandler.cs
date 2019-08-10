@@ -1,15 +1,15 @@
-﻿using Infrastructure.InstantWin.Allocator.Model;
-using Infrastructure.InstantWin.Generator;
-using Models.Domain;
+﻿using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Model;
+using Swift.Umbraco.Infrastructure.InstantWin.Generator;
+using Swift.Umbraco.Models.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Trebor.Cash.In.Flash.Controllers.Render;
+using Swift.Umbraco.Web.Controllers.Render;
 using Umbraco.Core;
 using Umbraco.Core.Persistence;
 using Umbraco.Web.Mvc;
 
-namespace Trebor.Cash.In.Flash
+namespace Swift.Umbraco.Web
 {
     public class StartupHandler : ApplicationEventHandler
     {

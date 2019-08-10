@@ -1,4 +1,4 @@
-﻿namespace Models.DTO
+﻿namespace Swift.Umbraco.Models.DTO
 {
     public class CrmResponse
     {

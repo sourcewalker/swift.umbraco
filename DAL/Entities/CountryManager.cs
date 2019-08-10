@@ -1,13 +1,13 @@
-﻿using DAL.Interfaces;
-using Models.Domain;
-using Models.DTO;
-using Models.Enum;
+﻿using Swift.Umbraco.DAL.Interfaces;
+using Swift.Umbraco.Models.Domain;
+using Swift.Umbraco.Models.DTO;
+using Swift.Umbraco.Models.Enum;
 using System;
 using System.Linq;
-using Models.Mapping.Helper;
+using Swift.Umbraco.Models.Mapping.Helper;
 using Umbraco.Core.Persistence;
 
-namespace DAL.Entities
+namespace Swift.Umbraco.DAL.Entities
 {
     public class CountryManager : GenericManager<Country>, ICountryManager
     {

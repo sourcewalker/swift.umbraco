@@ -3,7 +3,7 @@ using Hangfire.Dashboard;
 using System.Web;
 using Umbraco.Core.Security;
 
-namespace Trebor.Cash.In.Flash.Infrastructure.Filters
+namespace Swift.Umbraco.Web.Infrastructure.Filters
 {
     public class UmbracoAuthorizationFilter : IDashboardAuthorizationFilter
     {

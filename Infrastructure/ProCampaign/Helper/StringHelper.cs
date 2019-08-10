@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.ProCampaign.Helper
+﻿namespace Swift.Umbraco.Infrastructure.ProCampaign.Helper
 {
     public static class StringHelper
     {

@@ -1,16 +1,16 @@
 ﻿using System;
-using Business.Interfaces;
+using Swift.Umbraco.Business.Interfaces;
 using System.Web.Mvc;
-using Models.DTO;
+using Swift.Umbraco.Models.DTO;
 using Umbraco.Web.Mvc;
 using System.Linq;
-using Business.Helper;
+using Swift.Umbraco.Business.Helper;
 using System.Web;
 using Newtonsoft.Json;
 using System.Configuration;
-using Trebor.Cash.In.Flash.Models;
+using Swift.Umbraco.Web.Models;
 
-namespace Trebor.Cash.In.Flash.Controllers.Render
+namespace Swift.Umbraco.Web.Controllers.Render
 {
     public class BaseController : RenderMvcController
     {

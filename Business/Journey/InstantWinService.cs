@@ -1,9 +1,9 @@
-﻿using Business.Interfaces;
-using DAL.Interfaces;
-using Models.DTO;
+﻿using Swift.Umbraco.Business.Interfaces;
+using Swift.Umbraco.DAL.Interfaces;
+using Swift.Umbraco.Models.DTO;
 using System.Linq;
 
-namespace Business.Journey
+namespace Swift.Umbraco.Business.Journey
 {
     public class InstantWinService : IInstantWinService
     {

@@ -1,6 +1,6 @@
 ﻿using System.Dynamic;
 
-namespace Trebor.Cash.In.Flash.Models
+namespace Swift.Umbraco.Web.Models
 {
     public class ApiResponse
     {
