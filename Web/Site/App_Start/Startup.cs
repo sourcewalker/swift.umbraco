@@ -12,19 +12,22 @@ namespace Swift.Umbraco.Web
         {
             base.Configuration(app);
 
-            //var connectionString = UmbracoCore.ApplicationContext.Current.DatabaseContext.ConnectionString;
-            //GlobalConfiguration.Configuration.UseSqlServerStorage(connectionString);
+            // TODO: Hangfire database installation
+            #region Comment if the connectionString is not configured in web.config
+            var connectionString = UmbracoCore.ApplicationContext.Current.DatabaseContext.ConnectionString;
+            GlobalConfiguration.Configuration.UseSqlServerStorage(connectionString);
 
-            //var dashboardOptions = new DashboardOptions
-            //{
-            //    Authorization = new[]
-            //    {
-            //        new UmbracoAuthorizationFilter()
-            //    }
-            //};
+            var dashboardOptions = new DashboardOptions
+            {
+                Authorization = new[]
+                {
+                    new UmbracoAuthorizationFilter()
+                }
+            };
 
-            //app.UseHangfireDashboard("/umbraco/backoffice/Plugins/hangfire", dashboardOptions);
-            //app.UseHangfireServer();
+            app.UseHangfireDashboard("/umbraco/backoffice/Plugins/hangfire", dashboardOptions);
+            app.UseHangfireServer(); 
+            #endregion
         }
     }
 }

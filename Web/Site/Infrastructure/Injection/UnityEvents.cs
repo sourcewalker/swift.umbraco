@@ -57,12 +57,6 @@ namespace Swift.Umbraco.Web
             GlobalConfiguration.Configuration.DependencyResolver =
                             new Unity.AspNet.WebApi.UnityDependencyResolver(container);
 
-            // This will automatically scan an assembly for classes fitting this convention:
-            // Interface name: IMyClass
-            // Class name: MyClass
-            // and automatically register those types for you.
-            // If you do decide to use this feature, make sure it is the first one called.
-            // Conflicting registrations that follow will override previous ones.
             container.RegisterTypes(
                 AllClasses.FromAssemblies(typeof(UnityEvents).Assembly),
                 WithMappings.FromMatchingInterface,
@@ -70,18 +64,15 @@ namespace Swift.Umbraco.Web
             );
 
             // -- UmbracoContext resolution for backoffice controllers --
-            container.RegisterType<UmbracoContext>(
-                            new PerRequestLifetimeManager(),
-                            new InjectionFactory(c => UmbracoContext.Current)
-                      );
-            container.RegisterType<IContentService>(
-                        new PerRequestLifetimeManager(),
-                        new InjectionFactory(c => applicationContext.Services.ContentService)
-                      );
-            container.RegisterType<IMediaService>(
-                        new PerRequestLifetimeManager(),
-                        new InjectionFactory(c => applicationContext.Services.MediaService)
-                      );
+            container.RegisterFactory<UmbracoContext>(
+                (containr, type, name) => UmbracoContext.Current,
+                new PerRequestLifetimeManager());
+            container.RegisterFactory<IContentService>(
+                (containr, type, name) => applicationContext.Services.ContentService,
+                new PerRequestLifetimeManager());
+            container.RegisterFactory<IMediaService>(
+                (containr, type, name) => applicationContext.Services.MediaService,
+                new PerRequestLifetimeManager());
             container.RegisterInstance<ITypedPublishedContentQuery>(
                             umbracoHelper.ContentQuery,
                             new ContainerControlledLifetimeManager());
@@ -115,6 +106,7 @@ namespace Swift.Umbraco.Web
                 new ContainerControlledLifetimeManager());
             container.RegisterType<IValidationService, ValidationService>(
                 new ContainerControlledLifetimeManager());
+
             // Data Access Layer
             //// Umbraco
             container.RegisterType<IPublishedContentManager, PublishedContentManager>(
@@ -139,6 +131,7 @@ namespace Swift.Umbraco.Web
                 new ContainerControlledLifetimeManager());
             container.RegisterType<IPrizeManager, PrizeManager>(
                 new ContainerControlledLifetimeManager());
+
             // Infrastructure
             container.RegisterType<ICrmConsumerProvider, ConsumerProvider>(
                 new ContainerControlledLifetimeManager());

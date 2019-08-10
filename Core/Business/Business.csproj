@@ -225,13 +225,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Features\Features.csproj">
+      <Project>{a6eb99e2-6400-49ae-9257-be85fd8cce92}</Project>
+      <Name>Features</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{6BF61743-B5B5-4B1D-84A3-5903FC60521A}</Project>
       <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
-      <Project>{A6EB99E2-6400-49AE-9257-BE85FD8CCE92}</Project>
-      <Name>Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{F74B833C-4331-4694-B605-4EBC907681C6}</Project>

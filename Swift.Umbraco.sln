@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "Core\DAL\DAL.csproj"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Core\Models\Models.csproj", "{F74B833C-4331-4694-B605-4EBC907681C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A6EB99E2-6400-49AE-9257-BE85FD8CCE92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Features", "Infrastructure\Features\Features.csproj", "{A6EB99E2-6400-49AE-9257-BE85FD8CCE92}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C4687576-CAB2-4D6C-86BA-C468FDEF5C6B}"
 EndProject
