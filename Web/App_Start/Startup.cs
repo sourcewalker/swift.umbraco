@@ -12,19 +12,19 @@ namespace Swift.Umbraco.Web
         {
             base.Configuration(app);
 
-            var connectionString = UmbracoCore.ApplicationContext.Current.DatabaseContext.ConnectionString;
-            GlobalConfiguration.Configuration.UseSqlServerStorage(connectionString);
+            //var connectionString = UmbracoCore.ApplicationContext.Current.DatabaseContext.ConnectionString;
+            //GlobalConfiguration.Configuration.UseSqlServerStorage(connectionString);
 
-            var dashboardOptions = new DashboardOptions
-            {
-                Authorization = new[]
-                {
-                    new UmbracoAuthorizationFilter()
-                }
-            };
+            //var dashboardOptions = new DashboardOptions
+            //{
+            //    Authorization = new[]
+            //    {
+            //        new UmbracoAuthorizationFilter()
+            //    }
+            //};
 
-            app.UseHangfireDashboard("/umbraco/backoffice/Plugins/hangfire", dashboardOptions);
-            app.UseHangfireServer();
+            //app.UseHangfireDashboard("/umbraco/backoffice/Plugins/hangfire", dashboardOptions);
+            //app.UseHangfireServer();
         }
     }
 }

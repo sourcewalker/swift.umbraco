@@ -1,5 +1,4 @@
-﻿using Swift.Umbraco.Models.DTO;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 
 namespace Swift.Umbraco.Business.Interfaces
