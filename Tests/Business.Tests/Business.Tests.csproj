@@ -49,10 +49,22 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ConfigurationServiceTests.cs" />
+    <Compile Include="Helper\PublishedContentExtensionsTests.cs" />
+    <Compile Include="Journey\InstantWinServiceTests.cs" />
+    <Compile Include="Journey\ParticipationServiceTests.cs" />
+    <Compile Include="Journey\SynchronizationServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validation\ValidationServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Business\Business.csproj">
+      <Project>{ADB00176-A4F3-40C8-9880-131264B24A20}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

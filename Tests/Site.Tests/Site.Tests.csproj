@@ -49,10 +49,20 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Api\ParticipationControllerTests.cs" />
+    <Compile Include="Controllers\Render\HomepageControllerTests.cs" />
+    <Compile Include="Controllers\Render\ParticipationFlowControllerTests.cs" />
+    <Compile Include="Controllers\Surface\InstantWinControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Web\Site\Site.csproj">
+      <Project>{929E256B-3287-4C5D-9687-BAA3EED6C983}</Project>
+      <Name>Site</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

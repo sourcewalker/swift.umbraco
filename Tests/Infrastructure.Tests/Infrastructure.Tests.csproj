@@ -49,10 +49,22 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Captcha\Helper\GoogleRecaptchaHelperTests.cs" />
+    <Compile Include="Captcha\Provider\CaptchaProviderTests.cs" />
+    <Compile Include="Hangfire\HangfireProviderTests.cs" />
+    <Compile Include="InstantWin\InstantWinProviderTests.cs" />
+    <Compile Include="LogoGrab\Provider\LogoGrabProviderTests.cs" />
+    <Compile Include="ProCampaign\Provider\ConsumerProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Features\Features.csproj">
+      <Project>{A6EB99E2-6400-49AE-9257-BE85FD8CCE92}</Project>
+      <Name>Features</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
