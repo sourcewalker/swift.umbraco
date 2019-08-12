@@ -50,5 +50,19 @@ namespace Swift.Umbraco.Business.Configuration
             return _contentManager.GetTypedContentSingleAtXPath("//configurationContainer/activations")
                                                    .GetPropertyValue<IEnumerable<IPublishedContent>>("notRedirectedPages");
         }
+
+        public int GetCongratulationPageId()
+        {
+            var congratsPage = _contentManager.GetTypedContentAtXPath("//congratulations")
+                                            .First(c => c.Name == "Congratulations");
+            return congratsPage.Id;
+        }
+
+        public int GetLosePageId()
+        {
+            var lostPage = _contentManager.GetTypedContentAtXPath("//lost")
+                                            .First(c => c.Name == "Lose");
+            return lostPage.Id;
+        }
     }
 }

@@ -14,5 +14,9 @@ namespace Swift.Umbraco.Business.Interfaces
 
         IEnumerable<IPublishedContent> GetNotRedirectedPages();
 
+        int GetCongratulationPageId();
+
+        int GetLosePageId();
+
     }
 }
