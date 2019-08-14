@@ -1,6 +1,6 @@
-﻿using System.Web.Mvc;
-using Swift.Umbraco.Business.Interfaces;
+﻿using Swift.Umbraco.Business.Service.Interfaces;
 using Swift.Umbraco.Models.Enum;
+using System.Web.Mvc;
 using Umbraco.Web.Models;
 
 namespace Swift.Umbraco.Web.Controllers.Render
@@ -19,7 +19,7 @@ namespace Swift.Umbraco.Web.Controllers.Render
 
         public ActionResult Participate(RenderModel model)
         {
-            if (ParticipationId == default || 
+            if (ParticipationId == default ||
                !_participationService.CheckStatus(ParticipationId, JourneyStatus.EMAIL_VALIDATED))
             {
                 return Redirect("/");

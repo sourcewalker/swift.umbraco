@@ -2250,13 +2250,13 @@
       <Project>{adb00176-a4f3-40c8-9880-131264b24a20}</Project>
       <Name>Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core\DAL\DAL.csproj">
-      <Project>{6bf61743-b5b5-4b1d-84a3-5903fc60521a}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\Models\Models.csproj">
       <Project>{f74b833c-4331-4694-b605-4ebc907681c6}</Project>
       <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\DAL\DAL.csproj">
+      <Project>{6bf61743-b5b5-4b1d-84a3-5903fc60521a}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Features\Features.csproj">
       <Project>{a6eb99e2-6400-49ae-9257-be85fd8cce92}</Project>

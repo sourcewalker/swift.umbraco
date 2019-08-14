@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ADB00176-A4F3-40C8-9880-131264B24A20}</ProjectGuid>
+    <ProjectGuid>{6BF61743-B5B5-4B1D-84A3-5903FC60521A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Swift.Umbraco.Business</RootNamespace>
-    <AssemblyName>Swift.Umbraco.Business</AssemblyName>
+    <RootNamespace>Swift.Umbraco.DAL</RootNamespace>
+    <AssemblyName>Swift.Umbraco.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -134,7 +134,6 @@
       <HintPath>..\packages\UmbracoCms.Core.7.14.0\lib\net45\SQLCE4Umbraco.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.14.0\lib\net45\System.Data.SqlServerCe.dll</HintPath>
@@ -210,44 +209,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\ConfigurationService.cs" />
-    <Compile Include="Manager.Interfaces\IConsumerManager.cs" />
-    <Compile Include="Manager.Interfaces\IContentServiceManager.cs" />
-    <Compile Include="Manager.Interfaces\ICountryManager.cs" />
-    <Compile Include="Manager.Interfaces\IFailedTransactionManager.cs" />
-    <Compile Include="Manager.Interfaces\IGenericManager.cs" />
-    <Compile Include="Manager.Interfaces\IInstantWinMomentManager.cs" />
-    <Compile Include="Manager.Interfaces\IMediaServiceManager.cs" />
-    <Compile Include="Manager.Interfaces\IParticipantManager.cs" />
-    <Compile Include="Manager.Interfaces\IParticipationManager.cs" />
-    <Compile Include="Service.Interfaces\IParticipationService.cs" />
-    <Compile Include="Manager.Interfaces\IPrizeManager.cs" />
-    <Compile Include="Manager.Interfaces\IPublishedContentManager.cs" />
-    <Compile Include="Journey\InstantWinService.cs" />
-    <Compile Include="Journey\ParticipationService.cs" />
-    <Compile Include="Journey\SynchronizationService.cs" />
-    <Compile Include="Validation\ValidationService.cs" />
-    <Compile Include="Helper\PublishedContentExtensions.cs" />
-    <Compile Include="Service.Interfaces\IConfigurationService.cs" />
-    <Compile Include="Service.Interfaces\IInstantWinService.cs" />
-    <Compile Include="Service.Interfaces\ISynchronizationService.cs" />
-    <Compile Include="Service.Interfaces\IValidationService.cs" />
+    <Compile Include="Entities\ConsumerManager.cs" />
+    <Compile Include="Entities\CountryManager.cs" />
+    <Compile Include="Entities\FailedTransactionManager.cs" />
+    <Compile Include="Entities\GenericManager.cs" />
+    <Compile Include="Entities\InstantWinMomentManager.cs" />
+    <Compile Include="Entities\ParticipantManager.cs" />
+    <Compile Include="Entities\ParticipationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\..\Infrastructure\Features\Features.csproj">
-      <Project>{a6eb99e2-6400-49ae-9257-be85fd8cce92}</Project>
-      <Name>Features</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{F74B833C-4331-4694-B605-4EBC907681C6}</Project>
-      <Name>Models</Name>
-    </ProjectReference>
+    <Compile Include="Entities\PrizeManager.cs" />
+    <Compile Include="Umbraco\ContentServiceManager.cs" />
+    <Compile Include="Umbraco\MediaServiceManager.cs" />
+    <Compile Include="Umbraco\PublishedContentManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Business\Business.csproj">
+      <Project>{ADB00176-A4F3-40C8-9880-131264B24A20}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Models\Models.csproj">
+      <Project>{F74B833C-4331-4694-B605-4EBC907681C6}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />

@@ -1,14 +1,14 @@
-﻿using System;
-using Swift.Umbraco.Business.Interfaces;
-using System.Web.Mvc;
-using Swift.Umbraco.Models.DTO;
-using Umbraco.Web.Mvc;
-using System.Linq;
+﻿using Newtonsoft.Json;
 using Swift.Umbraco.Business.Helper;
-using System.Web;
-using Newtonsoft.Json;
-using System.Configuration;
+using Swift.Umbraco.Business.Service.Interfaces;
+using Swift.Umbraco.Models.DTO;
 using Swift.Umbraco.Web.Models;
+using System;
+using System.Configuration;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Umbraco.Web.Mvc;
 
 namespace Swift.Umbraco.Web.Controllers.Render
 {
@@ -47,7 +47,7 @@ namespace Swift.Umbraco.Web.Controllers.Render
             {
                 filterContext.Result = new RedirectResult(
                                 _configurationService.GetStaticPagePathByName("Holding"));
-                return; 
+                return;
             }
 
             if (config.EndDate < DateTime.UtcNow)

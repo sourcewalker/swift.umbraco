@@ -1,7 +1,6 @@
-﻿using Swift.Umbraco.Business.Interfaces;
-using Swift.Umbraco.DAL.Interfaces;
+﻿using Swift.Umbraco.Business.Manager.Interfaces;
+using Swift.Umbraco.Business.Service.Interfaces;
 using Swift.Umbraco.Models.DTO;
-using System.Linq;
 
 namespace Swift.Umbraco.Business.Journey
 {

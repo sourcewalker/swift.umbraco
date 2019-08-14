@@ -1,5 +1,4 @@
-﻿using Swift.Umbraco.Business.Interfaces;
-using System;
+﻿using Swift.Umbraco.Business.Service.Interfaces;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Umbraco.Web.Models;

@@ -1,10 +1,10 @@
-﻿using Swift.Umbraco.Business.Interfaces;
+﻿using Swift.Umbraco.Business.Service.Interfaces;
 using Swift.Umbraco.Models.DTO;
+using Swift.Umbraco.Web.Extensions.Storage;
+using Swift.Umbraco.Web.Models;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Mvc;
-using Swift.Umbraco.Web.Extensions.Storage;
-using Swift.Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
 
 namespace Swift.Umbraco.Web.Controllers.Surface

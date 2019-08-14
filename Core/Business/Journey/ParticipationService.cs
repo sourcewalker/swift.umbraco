@@ -1,5 +1,5 @@
-﻿using Swift.Umbraco.Business.Interfaces;
-using Swift.Umbraco.DAL.Interfaces;
+﻿using Swift.Umbraco.Business.Manager.Interfaces;
+using Swift.Umbraco.Business.Service.Interfaces;
 using Swift.Umbraco.Models.DTO;
 using Swift.Umbraco.Models.Enum;
 using System;
@@ -35,7 +35,7 @@ namespace Swift.Umbraco.Business.Journey
         public async Task<(bool creationStatus, Guid participationId, Guid participantId)> GetOrCreateEmailValidatedParticipationAsync(string email)
         {
             var participation = _participationManager.FindByEmail(email);
-            if (participation != null && 
+            if (participation != null &&
                 (participation.JourneyStatus == JourneyStatus.EMAIL_VALIDATED.ToString() ||
                 participation.JourneyStatus == JourneyStatus.LOGO_VALIDATED.ToString()))
             {

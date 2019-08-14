@@ -1,5 +1,5 @@
-﻿using Swift.Umbraco.Business.Interfaces;
-using Swift.Umbraco.DAL.Interfaces;
+﻿using Swift.Umbraco.Business.Manager.Interfaces;
+using Swift.Umbraco.Business.Service.Interfaces;
 using Swift.Umbraco.Infrastructure.Interfaces;
 using Swift.Umbraco.Infrastructure.LogoGrab.Models;
 using Swift.Umbraco.Models.Enum;

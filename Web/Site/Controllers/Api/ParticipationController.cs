@@ -1,17 +1,16 @@
-﻿using Swift.Umbraco.Business.Interfaces;
+﻿using Swift.Umbraco.Business.Service.Interfaces;
 using Swift.Umbraco.Models.DTO;
 using Swift.Umbraco.Models.Enum;
+using Swift.Umbraco.Web.Extensions.Storage;
+using Swift.Umbraco.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using Swift.Umbraco.Web.Extensions.Storage;
-using Swift.Umbraco.Web.Models;
 using Umbraco.Web.WebApi;
 
 namespace Swift.Umbraco.Web.Controllers.Api
@@ -256,9 +255,9 @@ namespace Swift.Umbraco.Web.Controllers.Api
                     Street2 = model.Street2,
                     City = model.City,
                     Zipcode = model.Zipcode,
-                    Country = model.Country.ToUpper() == "UK" ? 
+                    Country = model.Country.ToUpper() == "UK" ?
                                     Countries.UK : Countries.IE,
-                    PaymentType = model.PaymentType.ToUpper() == "BACS" ? 
+                    PaymentType = model.PaymentType.ToUpper() == "BACS" ?
                                     PaymentType.BACS_TRANSFER : PaymentType.CHEQUE,
                     AccountNumber = model.AccountNumber,
                     SortCode = model.SortCode,
