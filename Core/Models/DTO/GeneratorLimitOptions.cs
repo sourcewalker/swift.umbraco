@@ -1,4 +1,4 @@
-﻿namespace Swift.Umbraco.Infrastructure.InstantWin
+﻿namespace Models.DTO
 {
     public enum GeneratorLimitOptions
     {

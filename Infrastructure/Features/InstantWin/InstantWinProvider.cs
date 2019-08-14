@@ -1,8 +1,7 @@
-﻿using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Factory;
-using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Model;
+﻿using Models.DTO;
+using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Factory;
 using Swift.Umbraco.Infrastructure.InstantWin.Generator.Factory;
 using Swift.Umbraco.Infrastructure.Interfaces;
-using Swift.Umbraco.Models.Domain;
 using System;
 using System.Collections.Generic;
 
@@ -10,10 +9,10 @@ namespace Swift.Umbraco.Infrastructure.InstantWin.Generator
 {
     public class InstantWinProvider : IInstantWinMomentProvider
     {
-        public IList<DateTime> GenerateWinningMoments()
+        public IList<DateTimeOffset> GenerateWinningMoments(GeneratorConfig config)
         {
             var generator = GeneratorFactory.Create(ProviderConfiguration.Generator.algorithm);
-            return generator.Generate();
+            return generator.Generate(config);
         }
 
         public IList<(Guid Id, string Name)> AllocatePrizes(IList<Allocable> allocable, int instantWinNumber)

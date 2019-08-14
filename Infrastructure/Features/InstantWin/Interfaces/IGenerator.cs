@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Models.DTO;
+using System;
 using System.Collections.Generic;
 
 namespace Swift.Umbraco.Infrastructure.InstantWin.Interfaces
 {
     public interface IGenerator
     {
-        IList<DateTime> Generate();
+        IList<DateTimeOffset> Generate(GeneratorConfig config);
     }
 }

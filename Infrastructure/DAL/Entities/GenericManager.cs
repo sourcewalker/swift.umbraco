@@ -41,7 +41,7 @@ namespace Swift.Umbraco.DAL.Entities
         {
             var id = Guid.NewGuid();
             entity.Id = id;
-            entity.CreatedOn = DateTime.UtcNow;
+            entity.CreatedOn = DateTimeOffset.UtcNow;
             _database.Insert(entity);
             return id;
         }

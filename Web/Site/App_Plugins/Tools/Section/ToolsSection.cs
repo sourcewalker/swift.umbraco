@@ -1,7 +1,7 @@
 ﻿using umbraco.businesslogic;
 using umbraco.interfaces;
 
-namespace Swift.Umbraco.Web.Web.App_Plugins.Tools.Application
+namespace Swift.Umbraco.Web.App_Plugins.Tools.Application
 {
     [Application(
         alias: "tools",

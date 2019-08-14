@@ -23,7 +23,8 @@ namespace Swift.Umbraco.Web.Extensions.Backoffice.Tree
 
         public override void Render(ref XmlTree tree)
         {
-            if (this.NodeKey == string.Empty) // Rendering the child nodes of the jobs folder
+            // Rendering the child nodes of the jobs folder
+            if (this.NodeKey == string.Empty)
             {
                 var jobsNode = XmlTreeNode.Create(this);
                 jobsNode.NodeID = "1";
@@ -31,7 +32,7 @@ namespace Swift.Umbraco.Web.Extensions.Backoffice.Tree
                 jobsNode.Text = "Hangfire Jobs";
                 jobsNode.Action = "#";
                 jobsNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/jobs/enqueued');";
-                jobsNode.Icon = "~/App_Plugins/Tools/Hangfire/hangfire.png";
+                jobsNode.Icon = "~/App_Plugins/Tools/Hangfire/jobs.png";
                 jobsNode.HasChildren = true;
                 TreeService treeService = new TreeService(-1, TreeAlias, ShowContextMenu, IsDialog, DialogMode, app, "HangfireJobs");
                 jobsNode.Source = treeService.GetServiceUrl();
@@ -45,7 +46,7 @@ namespace Swift.Umbraco.Web.Extensions.Backoffice.Tree
                 retriesNode.Text = "Hangfire retries";
                 retriesNode.Action = "#";
                 retriesNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/retries');";
-                retriesNode.Icon = "~/App_Plugins/Tools/Hangfire/hangfire.png";
+                retriesNode.Icon = "~/App_Plugins/Tools/Hangfire/retries.png";
                 retriesNode.HasChildren = false;
                 OnBeforeNodeRender(ref tree, ref retriesNode, EventArgs.Empty);
                 tree.Add(retriesNode);
@@ -57,7 +58,7 @@ namespace Swift.Umbraco.Web.Extensions.Backoffice.Tree
                 recurringNode.Text = "Hangfire recurring";
                 recurringNode.Action = "#";
                 recurringNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/recurring');";
-                recurringNode.Icon = "~/App_Plugins/Tools/Hangfire/hangfire.png";
+                recurringNode.Icon = "~/App_Plugins/Tools/Hangfire/recurring.png";
                 recurringNode.HasChildren = false;
                 OnBeforeNodeRender(ref tree, ref recurringNode, EventArgs.Empty);
                 tree.Add(recurringNode);
@@ -69,7 +70,7 @@ namespace Swift.Umbraco.Web.Extensions.Backoffice.Tree
                 serversNode.Text = "Hangfire servers";
                 serversNode.Action = "#";
                 serversNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/servers');";
-                serversNode.Icon = "~/App_Plugins/Tools/Hangfire/hangfire.png";
+                serversNode.Icon = "~/App_Plugins/Tools/Hangfire/server.png";
                 serversNode.HasChildren = false;
                 OnBeforeNodeRender(ref tree, ref serversNode, EventArgs.Empty);
                 tree.Add(serversNode);
@@ -83,19 +84,19 @@ namespace Swift.Umbraco.Web.Extensions.Backoffice.Tree
                 enqueuedNode.Text = "Enqueued Jobs";
                 enqueuedNode.Action = "#";
                 enqueuedNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/jobs/enqueued');";
-                enqueuedNode.Icon = "~/App_Plugins/Tools/Hangfire/hangfire.png";
+                enqueuedNode.Icon = "~/App_Plugins/Tools/Hangfire/enqueued.png";
                 enqueuedNode.HasChildren = false;
                 tree.Add(enqueuedNode);
 
-                var sheduledNode = XmlTreeNode.Create(this);
-                sheduledNode.NodeID = "5";
-                sheduledNode.NodeType = string.Empty;
-                sheduledNode.Text = "Scheduled Jobs";
-                sheduledNode.Action = "#";
-                sheduledNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/jobs/scheduled');";
-                sheduledNode.Icon = "~/App_Plugins/Tools/Hangfire/hangfire.png";
-                sheduledNode.HasChildren = false;
-                tree.Add(sheduledNode);
+                var scheduledNode = XmlTreeNode.Create(this);
+                scheduledNode.NodeID = "5";
+                scheduledNode.NodeType = string.Empty;
+                scheduledNode.Text = "Scheduled Jobs";
+                scheduledNode.Action = "#";
+                scheduledNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/jobs/scheduled');";
+                scheduledNode.Icon = "~/App_Plugins/Tools/Hangfire/scheduled.png";
+                scheduledNode.HasChildren = false;
+                tree.Add(scheduledNode);
 
                 var processingNode = XmlTreeNode.Create(this);
                 processingNode.NodeID = "6";
@@ -103,7 +104,7 @@ namespace Swift.Umbraco.Web.Extensions.Backoffice.Tree
                 processingNode.Text = "Processing Jobs";
                 processingNode.Action = "#";
                 processingNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/jobs/processing');";
-                processingNode.Icon = "~/App_Plugins/Tools/Hangfire/hangfire.png";
+                processingNode.Icon = "~/App_Plugins/Tools/Hangfire/processing.png";
                 processingNode.HasChildren = false;
                 tree.Add(processingNode);
 
@@ -113,7 +114,7 @@ namespace Swift.Umbraco.Web.Extensions.Backoffice.Tree
                 succeededNode.Text = "Succeeded Jobs";
                 succeededNode.Action = "#";
                 succeededNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/jobs/succeeded');";
-                succeededNode.Icon = "~/App_Plugins/Tools/Hangfire/hangfire.png";
+                succeededNode.Icon = "~/App_Plugins/Tools/Hangfire/succeeded.png";
                 succeededNode.HasChildren = false;
                 tree.Add(succeededNode);
 
@@ -123,7 +124,7 @@ namespace Swift.Umbraco.Web.Extensions.Backoffice.Tree
                 failedNode.Text = "Failed Jobs";
                 failedNode.Action = "#";
                 failedNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/jobs/failed');";
-                failedNode.Icon = "~/App_Plugins/Tools/Hangfire/hangfire.png";
+                failedNode.Icon = "~/App_Plugins/Tools/Hangfire/failed.png";
                 failedNode.HasChildren = false;
                 tree.Add(failedNode);
 
@@ -133,19 +134,19 @@ namespace Swift.Umbraco.Web.Extensions.Backoffice.Tree
                 deletedNode.Text = "Deleted Jobs";
                 deletedNode.Action = "#";
                 deletedNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/jobs/deleted');";
-                deletedNode.Icon = "~/App_Plugins/Tools/Hangfire/hangfire.png";
+                deletedNode.Icon = "~/App_Plugins/Tools/Hangfire/deleted.png";
                 deletedNode.HasChildren = false;
                 tree.Add(deletedNode);
 
-                var awatingNode = XmlTreeNode.Create(this);
-                awatingNode.NodeID = "10";
-                awatingNode.NodeType = string.Empty;
-                awatingNode.Text = "Awaiting Jobs";
-                awatingNode.Action = "#";
-                awatingNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/jobs/awaiting');";
-                awatingNode.Icon = "~/App_Plugins/Tools/Hangfire/hangfire.png";
-                awatingNode.HasChildren = false;
-                tree.Add(awatingNode);
+                var awaitingNode = XmlTreeNode.Create(this);
+                awaitingNode.NodeID = "10";
+                awaitingNode.NodeType = string.Empty;
+                awaitingNode.Text = "Awaiting Jobs";
+                awaitingNode.Action = "#";
+                awaitingNode.Action = "javascript:openPage('/umbraco/backoffice/Plugins/hangfire/jobs/awaiting');";
+                awaitingNode.Icon = "~/App_Plugins/Tools/Hangfire/awaiting.png";
+                awaitingNode.HasChildren = false;
+                tree.Add(awaitingNode);
             }
         }
 

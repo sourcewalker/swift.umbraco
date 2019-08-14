@@ -1,4 +1,4 @@
-﻿using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Model;
+﻿using Models.DTO;
 using Swift.Umbraco.Infrastructure.InstantWin.Interfaces;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,5 @@
-﻿using Swift.Umbraco.Infrastructure.InstantWin.Interfaces;
+﻿using Models.DTO;
+using Swift.Umbraco.Infrastructure.InstantWin.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,17 +8,18 @@ namespace Swift.Umbraco.Infrastructure.InstantWin.Generator.Algorithms
 {
     public class DivideAndConquerAlgorithm : IGenerator
     {
-        public IList<DateTime> Generate()
+        public IList<DateTimeOffset> Generate(GeneratorConfig config)
         {
-            var startDate = ProviderConfiguration.Campaign.StartDate;
-            var endDate = ProviderConfiguration.Campaign.EndDate;
-            var openHour = ProviderConfiguration.Campaign.OpenTime;
-            var closeHour = ProviderConfiguration.Campaign.CloseTime;
+            var startDate = config.StartDate;
+            var endDate = config.EndDate;
+            var openHour = config.OpenTime;
+            var closeHour = config.CloseTime;
+            var limitOptions = config.LimitOption;
 
             // Dividing Timespan between start and end date into multiple intervals
             // According to limit option
-            var intervalLength = GetDivisionInterval();
-            var limitPerInterval = ProviderConfiguration.Generator.LimitNumber;
+            var limitPerInterval = config.LimitNumber;
+            var intervalLength = GetDivisionInterval(limitOptions, startDate, endDate);
 
             var firstIntervalDate = startDate;
 
@@ -35,7 +37,7 @@ namespace Swift.Umbraco.Infrastructure.InstantWin.Generator.Algorithms
                                     endDate :
                                     (firstIntervalDate + intervalLength);
 
-            var dateList = new List<DateTime>();
+            var dateList = new List<DateTimeOffset>();
             var random = new Random();
             byte[] bytes = new byte[8];
             var randomAddition = new Random();
@@ -46,12 +48,28 @@ namespace Swift.Umbraco.Infrastructure.InstantWin.Generator.Algorithms
                 {
                     random.NextBytes(bytes);
                     var ranDouble = randomAddition.NextDouble();
-                    var randomDate = GenerateRandomDateBetweenInterval(bytes, firstIntervalDate, lastIntervalDate);
-                    var differentElement = EnsureDifferentDate(ranDouble, randomDate, dateList, firstIntervalDate, lastIntervalDate);
+                    var randomDate = GenerateRandomDateBetweenInterval(
+                                        bytes,
+                                        firstIntervalDate,
+                                        lastIntervalDate,
+                                        openHour,
+                                        closeHour);
+                    var differentElement = EnsureDifferentDate(
+                                            ranDouble,
+                                            randomDate,
+                                            dateList,
+                                            firstIntervalDate,
+                                            lastIntervalDate);
                     dateList.Add(differentElement);
                 }
 
-                var nextInterval = SwitchToNextInterval(lastIntervalDate, intervalLength, endDate);
+                var nextInterval = SwitchToNextInterval(
+                                    limitOptions,
+                                    lastIntervalDate,
+                                    intervalLength,
+                                    endDate,
+                                    openHour,
+                                    closeHour);
                 firstIntervalDate = nextInterval.nextIntervalStart;
                 lastIntervalDate = nextInterval.nextIntervalEnd;
             }
@@ -60,10 +78,11 @@ namespace Swift.Umbraco.Infrastructure.InstantWin.Generator.Algorithms
             return dateList;
         }
 
-        private TimeSpan GetDivisionInterval()
+        private TimeSpan GetDivisionInterval(
+            GeneratorLimitOptions limitOptions,
+            DateTimeOffset startDate,
+            DateTimeOffset endDate)
         {
-            var limitOptions = ProviderConfiguration.Generator.limitOption;
-
             switch (limitOptions)
             {
                 case GeneratorLimitOptions.LimitPerHour:
@@ -74,20 +93,21 @@ namespace Swift.Umbraco.Infrastructure.InstantWin.Generator.Algorithms
                     return TimeSpan.FromDays(30);
                 case GeneratorLimitOptions.LimitPerCampaign:
                 default:
-                    return ProviderConfiguration.Campaign.EndDate - ProviderConfiguration.Campaign.StartDate;
+                    return endDate - startDate;
             }
         }
 
-        private (DateTime nextIntervalStart, DateTime nextIntervalEnd) SwitchToNextInterval(
-            DateTime previousIntervalEnd,
+        private (DateTimeOffset nextIntervalStart, DateTimeOffset nextIntervalEnd) SwitchToNextInterval(
+            GeneratorLimitOptions limitOption,
+            DateTimeOffset previousIntervalEnd,
             TimeSpan intervalLength,
-            DateTime EndLimit)
+            DateTimeOffset EndLimit,
+            DateTimeOffset openHour,
+            DateTimeOffset closeHour)
         {
-            var openHour = ProviderConfiguration.Campaign.OpenTime;
-            var closeHour = ProviderConfiguration.Campaign.CloseTime;
             var nextIntervalStart = previousIntervalEnd;
 
-            if (ProviderConfiguration.Generator.limitOption == GeneratorLimitOptions.LimitPerHour)
+            if (limitOption == GeneratorLimitOptions.LimitPerHour)
             {
                 if (nextIntervalStart.TimeOfDay < openHour.TimeOfDay)
                 {
@@ -112,10 +132,13 @@ namespace Swift.Umbraco.Infrastructure.InstantWin.Generator.Algorithms
             return (nextIntervalStart, nextIntervalEnd);
         }
 
-        private DateTime GenerateRandomDateBetweenInterval(byte[] bytes, DateTime firstDate, DateTime lastDate)
+        private DateTimeOffset GenerateRandomDateBetweenInterval(
+            byte[] bytes,
+            DateTimeOffset firstDate,
+            DateTimeOffset lastDate,
+            DateTimeOffset openHour,
+            DateTimeOffset closeHour)
         {
-            var openHour = ProviderConfiguration.Campaign.OpenTime;
-            var closeHour = ProviderConfiguration.Campaign.CloseTime;
             var timeSpan = lastDate - firstDate;
             var additionSpan = GetRandomTimeInTimeSpan(bytes, timeSpan);
             var newRandom = firstDate + additionSpan;
@@ -138,16 +161,16 @@ namespace Swift.Umbraco.Infrastructure.InstantWin.Generator.Algorithms
             return new TimeSpan(ranInt64);
         }
 
-        private DateTime EnsureDifferentDate(
+        private DateTimeOffset EnsureDifferentDate(
             double ranDouble,
-            DateTime currentDatetime,
-            IEnumerable<DateTime> dateList,
-            DateTime firstDate,
-            DateTime lastDate)
+            DateTimeOffset currentDateTimeOffset,
+            IEnumerable<DateTimeOffset> dateList,
+            DateTimeOffset firstDate,
+            DateTimeOffset lastDate)
         {
-            if (!dateList.Contains(currentDatetime))
+            if (!dateList.Contains(currentDateTimeOffset))
             {
-                return currentDatetime;
+                return currentDateTimeOffset;
             }
             else
             {
@@ -155,17 +178,17 @@ namespace Swift.Umbraco.Infrastructure.InstantWin.Generator.Algorithms
                 {
                     if (ranDouble <= 0.5)
                     {
-                        currentDatetime -= TimeSpan.FromSeconds(ranDouble * 10);
+                        currentDateTimeOffset -= TimeSpan.FromSeconds(ranDouble * 10);
                     }
                     else
                     {
-                        currentDatetime += TimeSpan.FromSeconds(ranDouble * 10);
+                        currentDateTimeOffset += TimeSpan.FromSeconds(ranDouble * 10);
                     }
                 }
-                while (dateList.Contains(currentDatetime) ||
-                        currentDatetime < firstDate ||
-                        lastDate < currentDatetime);
-                return currentDatetime;
+                while (dateList.Contains(currentDateTimeOffset) ||
+                        currentDateTimeOffset < firstDate ||
+                        lastDate < currentDateTimeOffset);
+                return currentDateTimeOffset;
             }
         }
     }

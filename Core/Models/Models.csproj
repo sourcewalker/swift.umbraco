@@ -217,6 +217,7 @@
     <Compile Include="Domain\Participant.cs" />
     <Compile Include="Domain\Participation.cs" />
     <Compile Include="Domain\Prize.cs" />
+    <Compile Include="DTO\Allocable.cs" />
     <Compile Include="DTO\CampaignConfiguration.cs" />
     <Compile Include="DTO\ConsumerDto.cs" />
     <Compile Include="DTO\CountryDto.cs" />
@@ -225,6 +226,8 @@
     <Compile Include="DTO\CrmResponse.cs" />
     <Compile Include="DTO\EmailDto.cs" />
     <Compile Include="DTO\FailedTransactionDto.cs" />
+    <Compile Include="DTO\GeneratorConfig.cs" />
+    <Compile Include="DTO\GeneratorLimitOptions.cs" />
     <Compile Include="DTO\InstantWinMomentDto.cs" />
     <Compile Include="DTO\ParticipantDto.cs" />
     <Compile Include="DTO\ParticipationDto.cs" />

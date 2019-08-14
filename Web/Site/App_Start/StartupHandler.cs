@@ -1,10 +1,7 @@
-﻿using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Model;
-using Swift.Umbraco.Infrastructure.InstantWin.Generator;
-using Swift.Umbraco.Models.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Swift.Umbraco.Models.Domain;
 using Swift.Umbraco.Web.Controllers.Render;
+using System;
+using System.Linq;
 using Umbraco.Core;
 using Umbraco.Core.Persistence;
 using Umbraco.Web.Mvc;
@@ -94,7 +91,7 @@ namespace Swift.Umbraco.Web
                     Name = "United Kingdom",
                     Code = "UK",
                     Culture = "en-GB",
-                    CreatedOn = DateTime.UtcNow
+                    CreatedOn = DateTimeOffset.UtcNow
                 };
 
                 database.Insert(ukCountry);
@@ -116,7 +113,7 @@ namespace Swift.Umbraco.Web
                     Name = "Ireland",
                     Code = "IE",
                     Culture = "en-IE",
-                    CreatedOn = DateTime.UtcNow
+                    CreatedOn = DateTimeOffset.UtcNow
                 };
 
                 database.Insert(ieCountry);
@@ -146,7 +143,7 @@ namespace Swift.Umbraco.Web
                     Value = 5,
                     TotalNumber = number,
                     Remaining = number,
-                    CreatedOn = DateTime.UtcNow
+                    CreatedOn = DateTimeOffset.UtcNow
                 };
 
                 database.Insert(fivePoundPrize);
@@ -170,7 +167,7 @@ namespace Swift.Umbraco.Web
                     Value = 10,
                     TotalNumber = number,
                     Remaining = number,
-                    CreatedOn = DateTime.UtcNow
+                    CreatedOn = DateTimeOffset.UtcNow
                 };
 
                 database.Insert(tenPoundPrize);
@@ -194,7 +191,7 @@ namespace Swift.Umbraco.Web
                     Value = 20,
                     TotalNumber = number,
                     Remaining = number,
-                    CreatedOn = DateTime.UtcNow
+                    CreatedOn = DateTimeOffset.UtcNow
                 };
 
                 database.Insert(twentyPoundPrize);
@@ -218,7 +215,7 @@ namespace Swift.Umbraco.Web
                     Value = 50,
                     TotalNumber = number,
                     Remaining = number,
-                    CreatedOn = DateTime.UtcNow
+                    CreatedOn = DateTimeOffset.UtcNow
                 };
 
                 database.Insert(fiftyPoundPrize);
@@ -242,7 +239,7 @@ namespace Swift.Umbraco.Web
                     Value = 100,
                     TotalNumber = number,
                     Remaining = number,
-                    CreatedOn = DateTime.UtcNow
+                    CreatedOn = DateTimeOffset.UtcNow
                 };
 
                 database.Insert(hundredPoundPrize);
@@ -266,7 +263,7 @@ namespace Swift.Umbraco.Web
                     Value = 250,
                     TotalNumber = number,
                     Remaining = number,
-                    CreatedOn = DateTime.UtcNow
+                    CreatedOn = DateTimeOffset.UtcNow
                 };
 
                 database.Insert(twoHundredPoundsPrize);
@@ -290,7 +287,7 @@ namespace Swift.Umbraco.Web
                     Value = 500,
                     TotalNumber = number,
                     Remaining = number,
-                    CreatedOn = DateTime.UtcNow
+                    CreatedOn = DateTimeOffset.UtcNow
                 };
 
                 database.Insert(fivehundredPoundPrize);
@@ -314,58 +311,12 @@ namespace Swift.Umbraco.Web
                     Value = 1000,
                     TotalNumber = number,
                     Remaining = number,
-                    CreatedOn = DateTime.UtcNow
+                    CreatedOn = DateTimeOffset.UtcNow
                 };
 
                 database.Insert(thousandPoundPrize);
             }
 
-            #endregion
-
-            #region Create InstantMoments
-
-            var instantMomentSqlQuery = "SELECT COUNT(*) FROM InstantWinMoment";
-            var instantWinNumber = database.ExecuteScalar<long>(instantMomentSqlQuery);
-
-            if (instantWinNumber == 0)
-            {
-                var instantWinProvider = new InstantWinProvider();
-                var instantList = instantWinProvider.GenerateWinningMoments();
-
-                var prizesQuery = new Sql()
-                            .Select("*")
-                            .From<Prize>(sqlProvider);
-                var prizes = database.Fetch<Prize>(prizesQuery);
-
-                var allocables = new List<Allocable>();
-                foreach (var prize in prizes)
-                {
-                    allocables.Add(new Allocable
-                    {
-                        Id = prize.Id,
-                        Name = prize.Name,
-                        Number = prize.TotalNumber
-                    });
-                }
-
-                var allocatedPrizes = instantWinProvider.AllocatePrizes(allocables, instantList.Count);
-
-                var counter = 0;
-                for (var index = 0; index < instantList.Count; index++)
-                {
-                    var instantWin = new InstantWinMoment
-                    {
-                        Id = Guid.NewGuid(),
-                        PrizeId = allocatedPrizes[index].Id,
-                        IsWon = false,
-                        CreatedOn = DateTime.UtcNow,
-                        ActivationDate = instantList[index]
-                    };
-                    database.Insert(instantWin);
-                    counter++;
-                }
-                var status = counter == instantList.Count;
-            }
             #endregion
         }
     }

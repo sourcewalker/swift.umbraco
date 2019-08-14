@@ -318,7 +318,21 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
-    <Content Include="App_Plugins\Tools\Hangfire\hangfire.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\awaiting.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\deleted.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\enqueued.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\failed.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\jobs.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\processing.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\recurring.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\retries.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\scheduled.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\server.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\succeeded.png" />
+    <Content Include="App_Plugins\Tools\InstantWin\generate.service.js" />
+    <Content Include="App_Plugins\Tools\InstantWin\InDatabase.html" />
+    <Content Include="App_Plugins\Tools\InstantWin\InFile.html" />
+    <Content Include="App_Plugins\Tools\InstantWin\instantwin.controller.js" />
     <Content Include="App_Plugins\Tools\Lang\en-US.xml" />
     <Content Include="App_Plugins\uLogs\app.html" />
     <Content Include="App_Plugins\uLogs\assets\scripts\app.js" />
@@ -1970,11 +1984,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Plugins\Tools\Application\ToolsSection.cs" />
+    <Compile Include="App_Plugins\Tools\Section\ToolsSection.cs" />
     <Compile Include="App_Start\AutoMapperHandler.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\StartupHandler.cs" />
     <Compile Include="App_Start\WebApplication.cs" />
+    <Compile Include="Controllers\Backoffice\InstantWinApiController.cs" />
+    <Compile Include="Controllers\Backoffice\InstantWinTreeController.cs" />
     <Compile Include="Controllers\Render\BaseController.cs" />
     <Compile Include="Controllers\Render\HomepageController.cs" />
     <Compile Include="Controllers\Render\ParticipationFlowController.cs" />
@@ -2029,6 +2045,7 @@
     <Content Include="App_Plugins\uSync.Content\package.manifest" />
     <Content Include="App_Plugins\uLogs\package.manifest" />
     <Content Include="config\IISRewriteRules.config" />
+    <Content Include="App_Plugins\Tools\package.manifest" />
     <None Include="packages.config" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.eot" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.ttf" />

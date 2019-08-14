@@ -10,12 +10,12 @@ namespace Swift.Umbraco.Models.DTO
 
         public PrizeDto Prize { get; set; }
 
-        public DateTime ActivationDate { get; set; }
+        public DateTimeOffset ActivationDate { get; set; }
 
         public bool IsWon { get; set; }
 
-        public DateTime CreatedOn { get; set; }
+        public DateTimeOffset CreatedOn { get; set; }
 
-        public DateTime UpdatedOn { get; set; }
+        public DateTimeOffset UpdatedOn { get; set; }
     }
 }

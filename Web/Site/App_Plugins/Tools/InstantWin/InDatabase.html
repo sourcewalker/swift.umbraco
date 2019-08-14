@@ -1,0 +1,403 @@
+﻿<h3>Instant Win Moment generation in database</h3>
+<h4>This section contains the tools for generating instant win slots</h4>
+<p>Please note that the generated slots are inserted directly into the database.</p>
+<hr />
+<div class="umb-editor umb-mediapicker span12" ng-controller="instantwin.controller">
+    <h3>Generator</h3>
+    <p>These configuration concern the instant win moment generation</p>
+    <div class="span12">
+        <div class="span2">
+            <!--Dropdown-->
+            <div class="umb-property ng-scope" data-element="property-umbracoUrlAlias" ng-repeat="property in tab.properties" property="property">
+                <ng-form name="propertyForm" class="ng-pristine ng-valid ng-valid-required">
+                    <div class="control-group umb-control-group" ng-class="{hidelabel:property.hideLabel}">
+
+                        <div class="umb-el-wrap">
+
+                            <label class="control-label ng-binding" ng-hide="property.hideLabel" for="changeFrequency" ng-attr-title="{{propertyAlias}}" title="changeFrequency">
+                                Limit Option
+                            </label>
+
+                            <div class="controls" ng-transclude="">
+
+                                <div class="umb-property-editor ng-scope" ng-class="{'-not-clickable': preview}" model="property">
+                                    <div ng-include="propertyEditorView">
+                                        <div ng-controller="Umbraco.PropertyEditors.DropdownFlexibleController" ng-switch="model.config.multiple" class="ng-scope">
+                                            <select name="dropDownList" class="umb-editor umb-dropdown ng-scope ng-pristine ng-valid ng-valid-required" ng-switch-default="" ng-change="updateSingleDropdownValue()" ng-model="model.singleDropdownValue" ng-options="item.id as item.value for item in model.config.items" ng-required="model.validation.mandatory">
+                                                <option value="" class=""></option>
+                                                <option value="0">always</option>
+                                                <option value="1">hourly</option>
+                                                <option value="2">daily</option>
+                                                <option value="3">weekly</option>
+                                                <option value="4">monthly</option>
+                                                <option value="5">yearly</option>
+                                                <option value="6">never</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-form>
+            </div>
+        </div>
+        <div class="span2">
+            <div class="umb-property ng-scope" data-element="property-umbracoUrlAlias" ng-repeat="property in tab.properties" property="property">
+                <ng-form name="propertyForm" class="ng-pristine ng-valid ng-valid-required">
+
+                    <div class="control-group umb-control-group">
+
+                        <div class="umb-el-wrap">
+
+                            <label class="control-label ng-binding" ng-hide="property.hideLabel" for="appId" ng-attr-title="{{propertyAlias}}" title="appId">
+                                Limit number by option
+                            </label>
+
+                            <div class="controls" ng-transclude="">
+
+                                <div class="umb-property-editor ng-scope" ng-class="{'-not-clickable': preview}" model="property">
+                                    <div ng-include="propertyEditorView">
+                                        <div class="umb-editor ng-scope">
+                                            <input name="integerField" type="number" pattern="[0-9]*" class="umb-editor umb-number ng-valid ng-valid-number ng-valid-min ng-dirty" ng-model="model.value" id="appId" val-server="value" fix-number="" min="0" max="" step="1">
+
+                                            <span class="help-inline" val-msg-for="integerField" val-toggle-msg="number" style="display: none;"><localize key="validation_invalidNumber" class="ng-isolate-scope ng-scope">Not a number</localize></span>
+                                            <span class="help-inline ng-binding" val-msg-for="integerField" val-toggle-msg="valServer" style="display: none;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-form>
+            </div>
+        </div>
+        <div class="span8"></div>
+    </div>
+    <div class="span12">
+        <div class="span3">
+            <!--Calendar-->
+            <div class="umb-property ng-scope" data-element="property-umbracoUrlAlias" ng-repeat="property in tab.properties" property="property">
+                <ng-form name="propertyForm" class="ng-pristine ng-valid ng-valid-required">
+                    <div class="control-group umb-control-group" ng-class="{hidelabel:property.hideLabel}">
+
+                        <div class="umb-el-wrap">
+
+                            <label class="control-label ng-binding" ng-hide="property.hideLabel" for="campaignEndDate" ng-attr-title="{{propertyAlias}}" title="campaignEndDate">
+                                Start Date
+                            </label>
+
+                            <div class="controls" ng-transclude="">
+
+                                <div class="umb-property-editor ng-scope" ng-class="{'-not-clickable': preview}" model="property">
+                                    <div ng-include="propertyEditorView">
+                                        <div class="umb-editor umb-datepicker ng-scope" ng-controller="Umbraco.PropertyEditors.DatepickerController">
+                                            <ng-form name="datePickerForm" class="ng-pristine ng-valid ng-valid-required">
+                                                <div class="input-append date datepicker" style="position: relative;" id="datepickercampaignEndDate">
+
+                                                    <input name="datepicker" data-format="YYYY-MM-DD HH:mm:ss" id="campaignEndDate" type="text" ng-model="datetimePickerValue" ng-required="model.validation.mandatory" val-server="value" class="datepickerinput ng-pristine ng-valid ng-valid-required">
+
+                                                    <span class="add-on">
+                                                        <i class="icon-calendar"></i>
+                                                    </span>
+
+                                                </div>
+
+                                                <span class="help-inline" val-msg-for="datepicker" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                                                <span class="help-inline ng-binding" val-msg-for="datepicker" val-toggle-msg="valServer" style="display: none;"></span>
+                                                <span class="help-inline" val-msg-for="datepicker" val-toggle-msg="pickerError" style="display: none;"><localize key="validation_invalidDate" class="ng-isolate-scope ng-scope">Invalid date</localize></span>
+
+                                            </ng-form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-form>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="umb-property ng-scope" data-element="property-umbracoUrlAlias" ng-repeat="property in tab.properties" property="property">
+                <ng-form name="propertyForm" class="ng-pristine ng-valid ng-valid-required">
+                    <div class="control-group umb-control-group" ng-class="{hidelabel:property.hideLabel}">
+
+                        <div class="umb-el-wrap">
+
+                            <label class="control-label ng-binding" ng-hide="property.hideLabel" for="campaignEndDate" ng-attr-title="{{propertyAlias}}" title="campaignEndDate">
+                                End date
+                            </label>
+
+                            <div class="controls" ng-transclude="">
+
+                                <div class="umb-property-editor ng-scope" ng-class="{'-not-clickable': preview}" model="property">
+                                    <div ng-include="propertyEditorView">
+                                        <div class="umb-editor umb-datepicker ng-scope" ng-controller="Umbraco.PropertyEditors.DatepickerController">
+                                            <ng-form name="datePickerForm" class="ng-pristine ng-valid ng-valid-required">
+                                                <div class="input-append date datepicker" style="position: relative;" id="datepickercampaignEndDate">
+
+                                                    <input name="datepicker" data-format="YYYY-MM-DD HH:mm:ss" id="campaignEndDate" type="text" ng-model="datetimePickerValue" ng-required="model.validation.mandatory" val-server="value" class="datepickerinput ng-pristine ng-valid ng-valid-required">
+
+                                                    <span class="add-on">
+                                                        <i class="icon-calendar"></i>
+                                                    </span>
+
+                                                </div>
+
+                                                <span class="help-inline" val-msg-for="datepicker" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                                                <span class="help-inline ng-binding" val-msg-for="datepicker" val-toggle-msg="valServer" style="display: none;"></span>
+                                                <span class="help-inline" val-msg-for="datepicker" val-toggle-msg="pickerError" style="display: none;"><localize key="validation_invalidDate" class="ng-isolate-scope ng-scope">Invalid date</localize></span>
+
+                                            </ng-form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-form>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="umb-property ng-scope" data-element="property-umbracoUrlAlias" ng-repeat="property in tab.properties" property="property">
+                <ng-form name="propertyForm" class="ng-pristine ng-valid ng-valid-required">
+                    <div class="control-group umb-control-group" ng-class="{hidelabel:property.hideLabel}">
+
+                        <div class="umb-el-wrap">
+
+                            <label class="control-label ng-binding" ng-hide="property.hideLabel" for="campaignEndDate" ng-attr-title="{{propertyAlias}}" title="campaignEndDate">
+                                Open Hour (Only the time matters)
+                            </label>
+
+                            <div class="controls" ng-transclude="">
+
+                                <div class="umb-property-editor ng-scope" ng-class="{'-not-clickable': preview}" model="property">
+                                    <div ng-include="propertyEditorView">
+                                        <div class="umb-editor umb-datepicker ng-scope" ng-controller="Umbraco.PropertyEditors.DatepickerController">
+                                            <ng-form name="datePickerForm" class="ng-pristine ng-valid ng-valid-required">
+                                                <div class="input-append date datepicker" style="position: relative;" id="datepickercampaignEndDate">
+
+                                                    <input name="datepicker" data-format="YYYY-MM-DD HH:mm:ss" id="campaignEndDate" type="text" ng-model="datetimePickerValue" ng-required="model.validation.mandatory" val-server="value" class="datepickerinput ng-pristine ng-valid ng-valid-required">
+
+                                                    <span class="add-on">
+                                                        <i class="icon-calendar"></i>
+                                                    </span>
+
+                                                </div>
+
+                                                <span class="help-inline" val-msg-for="datepicker" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                                                <span class="help-inline ng-binding" val-msg-for="datepicker" val-toggle-msg="valServer" style="display: none;"></span>
+                                                <span class="help-inline" val-msg-for="datepicker" val-toggle-msg="pickerError" style="display: none;"><localize key="validation_invalidDate" class="ng-isolate-scope ng-scope">Invalid date</localize></span>
+
+                                            </ng-form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-form>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="umb-property ng-scope" data-element="property-umbracoUrlAlias" ng-repeat="property in tab.properties" property="property">
+                <ng-form name="propertyForm" class="ng-pristine ng-valid ng-valid-required">
+                    <div class="control-group umb-control-group" ng-class="{hidelabel:property.hideLabel}">
+
+                        <div class="umb-el-wrap">
+
+                            <label class="control-label ng-binding" ng-hide="property.hideLabel" for="campaignEndDate" ng-attr-title="{{propertyAlias}}" title="campaignEndDate">
+                                Close Hour (Only the time matters)
+                            </label>
+
+                            <div class="controls" ng-transclude="">
+
+                                <div class="umb-property-editor ng-scope" ng-class="{'-not-clickable': preview}" model="property">
+                                    <div ng-include="propertyEditorView">
+                                        <div class="umb-editor umb-datepicker ng-scope" ng-controller="Umbraco.PropertyEditors.DatepickerController">
+                                            <ng-form name="datePickerForm" class="ng-pristine ng-valid ng-valid-required">
+                                                <div class="input-append date datepicker" style="position: relative;" id="datepickercampaignEndDate">
+
+                                                    <input name="datepicker" data-format="YYYY-MM-DD HH:mm:ss" id="campaignEndDate" type="text" ng-model="datetimePickerValue" ng-required="model.validation.mandatory" val-server="value" class="datepickerinput ng-pristine ng-valid ng-valid-required">
+
+                                                    <span class="add-on">
+                                                        <i class="icon-calendar"></i>
+                                                    </span>
+
+                                                </div>
+
+                                                <span class="help-inline" val-msg-for="datepicker" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                                                <span class="help-inline ng-binding" val-msg-for="datepicker" val-toggle-msg="valServer" style="display: none;"></span>
+                                                <span class="help-inline" val-msg-for="datepicker" val-toggle-msg="pickerError" style="display: none;"><localize key="validation_invalidDate" class="ng-isolate-scope ng-scope">Invalid date</localize></span>
+
+                                            </ng-form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-form>
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal tab-content ng-scope">
+        <h3>Allocator</h3>
+        <p>These configuration concern the instant win moments allocation number</p>
+        <div class="span12">
+            <div class="span4">
+                <div class="umb-property ng-scope" data-element="property-umbracoUrlAlias" ng-repeat="property in tab.properties" property="property">
+                    <ng-form name="propertyForm" class="ng-pristine ng-valid ng-valid-required">
+                        <div class="control-group umb-control-group">
+
+                            <div class="umb-el-wrap">
+
+                                <label class="control-label ng-binding" ng-hide="property.hideLabel" for="umbracoUrlAlias" ng-attr-title="{{propertyAlias}}" title="umbracoUrlAlias">
+                                    Prize sample 1
+                                </label>
+
+                                <div class="controls" ng-transclude="">
+
+                                    <div class="umb-property-editor ng-scope" ng-class="{'-not-clickable': preview}" model="property">
+                                        <div ng-include="propertyEditorView">
+                                            <div ng-controller="Umbraco.PropertyEditors.textboxController" class="ng-scope">
+                                                <input type="text" name="textbox" ng-model="model.value" id="umbracoUrlAlias" class="umb-editor umb-textstring textstring ng-pristine ng-valid ng-valid-required" val-server="value" ng-required="model.validation.mandatory" ng-trim="false" ng-keyup="model.change()">
+                                                <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                                                <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                                                <!-- ngIf: model.maxlength -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-form>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="umb-property ng-scope" data-element="property-umbracoUrlAlias" ng-repeat="property in tab.properties" property="property">
+                    <ng-form name="propertyForm" class="ng-pristine ng-valid ng-valid-required">
+                        <div class="control-group umb-control-group">
+
+                            <div class="umb-el-wrap">
+
+                                <label class="control-label ng-binding" ng-hide="property.hideLabel" for="umbracoUrlAlias" ng-attr-title="{{propertyAlias}}" title="umbracoUrlAlias">
+                                    Prize sample 2
+                                </label>
+
+                                <div class="controls" ng-transclude="">
+
+                                    <div class="umb-property-editor ng-scope" ng-class="{'-not-clickable': preview}" model="property">
+                                        <div ng-include="propertyEditorView">
+                                            <div ng-controller="Umbraco.PropertyEditors.textboxController" class="ng-scope">
+                                                <input type="text" name="textbox" ng-model="model.value" id="umbracoUrlAlias" class="umb-editor umb-textstring textstring ng-pristine ng-valid ng-valid-required" val-server="value" ng-required="model.validation.mandatory" ng-trim="false" ng-keyup="model.change()">
+                                                <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                                                <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                                                <!-- ngIf: model.maxlength -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-form>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="umb-property ng-scope" data-element="property-umbracoUrlAlias" ng-repeat="property in tab.properties" property="property">
+                    <ng-form name="propertyForm" class="ng-pristine ng-valid ng-valid-required">
+                        <div class="control-group umb-control-group">
+
+                            <div class="umb-el-wrap">
+
+                                <label class="control-label ng-binding" ng-hide="property.hideLabel" for="umbracoUrlAlias" ng-attr-title="{{propertyAlias}}" title="umbracoUrlAlias">
+                                    Prize sample 2
+                                </label>
+
+                                <div class="controls" ng-transclude="">
+
+                                    <div class="umb-property-editor ng-scope" ng-class="{'-not-clickable': preview}" model="property">
+                                        <div ng-include="propertyEditorView">
+                                            <div ng-controller="Umbraco.PropertyEditors.textboxController" class="ng-scope">
+                                                <input type="text" name="textbox" ng-model="model.value" id="umbracoUrlAlias" class="umb-editor umb-textstring textstring ng-pristine ng-valid ng-valid-required" val-server="value" ng-required="model.validation.mandatory" ng-trim="false" ng-keyup="model.change()">
+                                                <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                                                <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                                                <!-- ngIf: model.maxlength -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-form>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="umb-property ng-scope" data-element="property-umbracoUrlAlias" ng-repeat="property in tab.properties" property="property">
+                    <ng-form name="propertyForm" class="ng-pristine ng-valid ng-valid-required">
+                        <div class="control-group umb-control-group">
+
+                            <div class="umb-el-wrap">
+
+                                <label class="control-label ng-binding" ng-hide="property.hideLabel" for="umbracoUrlAlias" ng-attr-title="{{propertyAlias}}" title="umbracoUrlAlias">
+                                    Prize sample 4
+                                </label>
+
+                                <div class="controls" ng-transclude="">
+
+                                    <div class="umb-property-editor ng-scope" ng-class="{'-not-clickable': preview}" model="property">
+                                        <div ng-include="propertyEditorView">
+                                            <div ng-controller="Umbraco.PropertyEditors.textboxController" class="ng-scope">
+                                                <input type="text" name="textbox" ng-model="model.value" id="umbracoUrlAlias" class="umb-editor umb-textstring textstring ng-pristine ng-valid ng-valid-required" val-server="value" ng-required="model.validation.mandatory" ng-trim="false" ng-keyup="model.change()">
+                                                <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                                                <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                                                <!-- ngIf: model.maxlength -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-form>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="umb-property ng-scope" data-element="property-umbracoUrlAlias" ng-repeat="property in tab.properties" property="property">
+                    <ng-form name="propertyForm" class="ng-pristine ng-valid ng-valid-required">
+                        <div class="control-group umb-control-group">
+
+                            <div class="umb-el-wrap">
+
+                                <label class="control-label ng-binding" ng-hide="property.hideLabel" for="umbracoUrlAlias" ng-attr-title="{{propertyAlias}}" title="umbracoUrlAlias">
+                                    Prize sample 5
+                                </label>
+
+                                <div class="controls" ng-transclude="">
+
+                                    <div class="umb-property-editor ng-scope" ng-class="{'-not-clickable': preview}" model="property">
+                                        <div ng-include="propertyEditorView">
+                                            <div ng-controller="Umbraco.PropertyEditors.textboxController" class="ng-scope">
+                                                <input type="text" name="textbox" ng-model="model.value" id="umbracoUrlAlias" class="umb-editor umb-textstring textstring ng-pristine ng-valid ng-valid-required" val-server="value" ng-required="model.validation.mandatory" ng-trim="false" ng-keyup="model.change()">
+                                                <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                                                <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                                                <!-- ngIf: model.maxlength -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-form>
+                </div>
+            </div>
+        </div>
+        <div class="span12">
+            <button type="button"
+                    class="btn btn-success"
+                    ng-click="generate()">
+                Generate
+            </button>
+        </div>
+    </div>
+</div>
+

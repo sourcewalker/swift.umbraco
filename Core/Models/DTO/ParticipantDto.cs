@@ -17,12 +17,12 @@ namespace Swift.Umbraco.Models.DTO
 
         public ConsumerDto Consumer { get; set; }
 
-        public DateTime LastWonDate { get; set; }
+        public DateTimeOffset LastWonDate { get; set; }
 
-        public DateTime LastParticipatedDate { get; set; }
+        public DateTimeOffset LastParticipatedDate { get; set; }
 
-        public DateTime CreatedOn { get; set; }
+        public DateTimeOffset CreatedOn { get; set; }
 
-        public DateTime UpdatedOn { get; set; }
+        public DateTimeOffset UpdatedOn { get; set; }
     }
 }
