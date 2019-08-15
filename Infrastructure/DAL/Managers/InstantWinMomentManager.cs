@@ -1,4 +1,5 @@
 ﻿using Swift.Umbraco.Business.Manager.Interfaces;
+using Swift.Umbraco.DAL.Petapoco;
 using Swift.Umbraco.Models.Domain;
 using Swift.Umbraco.Models.DTO;
 using Swift.Umbraco.Models.Mapping.Helper;

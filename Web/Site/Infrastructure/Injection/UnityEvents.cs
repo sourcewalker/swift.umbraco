@@ -5,6 +5,7 @@ using Swift.Umbraco.Business.Service.Interfaces;
 using Swift.Umbraco.Business.Validation;
 using Swift.Umbraco.DAL.Entities;
 using Swift.Umbraco.DAL.Umbraco;
+using Swift.Umbraco.DAL.Petapoco;
 using Swift.Umbraco.Infrastructure.Captcha.Provider;
 using Swift.Umbraco.Infrastructure.Hangfire;
 using Swift.Umbraco.Infrastructure.InstantWin.Generator;

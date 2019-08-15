@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Swift.Umbraco.DAL</RootNamespace>
-    <AssemblyName>Swift.Umbraco.DAL</AssemblyName>
+    <AssemblyName>Swift.Umbraco.Infrastructure.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -134,6 +134,7 @@
       <HintPath>..\packages\UmbracoCms.Core.7.14.0\lib\net45\SQLCE4Umbraco.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.14.0\lib\net45\System.Data.SqlServerCe.dll</HintPath>
@@ -209,21 +210,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\ConsumerManager.cs" />
-    <Compile Include="Entities\CountryManager.cs" />
-    <Compile Include="Entities\FailedTransactionManager.cs" />
-    <Compile Include="Entities\GenericManager.cs" />
-    <Compile Include="Entities\InstantWinMomentManager.cs" />
-    <Compile Include="Entities\ParticipantManager.cs" />
-    <Compile Include="Entities\ParticipationManager.cs" />
+    <Compile Include="Extensions\FluentMappingsPocoData.cs" />
+    <Compile Include="Extensions\PetaPoco.cs" />
+    <Compile Include="Extensions\PetaPocoRelationExtensions.cs" />
+    <Compile Include="Managers\ConsumerManager.cs" />
+    <Compile Include="Managers\CountryManager.cs" />
+    <Compile Include="Managers\FailedTransactionManager.cs" />
+    <Compile Include="Mapping\ConsumerMap.cs" />
+    <Compile Include="Mapping\CountryMap.cs" />
+    <Compile Include="Mapping\FailedTransactionMap.cs" />
+    <Compile Include="Mapping\InstantWinMomentMap.cs" />
+    <Compile Include="Mapping\ParticipantMap.cs" />
+    <Compile Include="Mapping\ParticipationMap.cs" />
+    <Compile Include="Mapping\PrizeMap.cs" />
+    <Compile Include="Models\Generated\Database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Petapoco\DateTimeOffsetMapper.cs" />
+    <Compile Include="Petapoco\GenericManager.cs" />
+    <Compile Include="Managers\InstantWinMomentManager.cs" />
+    <Compile Include="Managers\ParticipantManager.cs" />
+    <Compile Include="Managers\ParticipationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\PrizeManager.cs" />
+    <Compile Include="Managers\PrizeManager.cs" />
     <Compile Include="Umbraco\ContentServiceManager.cs" />
     <Compile Include="Umbraco\MediaServiceManager.cs" />
     <Compile Include="Umbraco\PublishedContentManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Models\Generated\PetaPoco.Core.ttinclude" />
+    <None Include="Models\Generated\PetaPoco.Generator.ttinclude" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +254,15 @@
       <Project>{F74B833C-4331-4694-B605-4EBC907681C6}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Generated\Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Database.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />

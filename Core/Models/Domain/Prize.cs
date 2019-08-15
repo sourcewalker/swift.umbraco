@@ -4,8 +4,8 @@ using Umbraco.Core.Persistence.DatabaseAnnotations;
 
 namespace Swift.Umbraco.Models.Domain
 {
-    [TableName("Prize")]
-    [PrimaryKey("Id", autoIncrement = false)]
+    //[TableName("Prize")]
+    //[PrimaryKey("Id", autoIncrement = false)]
     public class Prize : EntityBase
     {
         public string Name { get; set; }
