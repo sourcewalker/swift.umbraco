@@ -5,12 +5,12 @@ namespace Swift.Umbraco.Models.Domain
 {
     public class EntityBase
     {
-        //[PrimaryKeyColumn(AutoIncrement = false)]
+        [PrimaryKeyColumn(AutoIncrement = false)]
         public Guid Id { get; set; }
 
         public DateTimeOffset CreatedOn { get; set; }
 
-        //[NullSetting(NullSetting = NullSettings.Null)]
+        [NullSetting(NullSetting = NullSettings.Null)]
         public DateTimeOffset UpdatedOn { get; set; }
     }
 }

@@ -329,10 +329,10 @@
     <Content Include="App_Plugins\Tools\Hangfire\scheduled.png" />
     <Content Include="App_Plugins\Tools\Hangfire\server.png" />
     <Content Include="App_Plugins\Tools\Hangfire\succeeded.png" />
-    <Content Include="App_Plugins\Tools\InstantWin\generate.service.js" />
     <Content Include="App_Plugins\Tools\InstantWin\InDatabase.html" />
     <Content Include="App_Plugins\Tools\InstantWin\InFile.html" />
     <Content Include="App_Plugins\Tools\InstantWin\instantwin.controller.js" />
+    <Content Include="App_Plugins\Tools\InstantWin\instantwin.resource.js" />
     <Content Include="App_Plugins\Tools\Lang\en-US.xml" />
     <Content Include="App_Plugins\uLogs\app.html" />
     <Content Include="App_Plugins\uLogs\assets\scripts\app.js" />

@@ -1,6 +1,6 @@
 ﻿{
   javascript: [
-    "~/App_Plugins/Tools/InstantWin/instantwin.controller.js",
-    "~/App_Plugins/Tools/InstantWin/generate.service.js"
+	"~/App_Plugins/Tools/InstantWin/instantwin.resource.js",
+    "~/App_Plugins/Tools/InstantWin/instantwin.controller.js"
   ]
 }

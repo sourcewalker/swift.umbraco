@@ -4,14 +4,14 @@ using Umbraco.Core.Persistence.DatabaseAnnotations;
 
 namespace Swift.Umbraco.Models.Domain
 {
-    //[TableName("FailedTransaction")]
-    //[PrimaryKey("Id", autoIncrement = false)]
+    [TableName("FailedTransaction")]
+    [PrimaryKey("Id", autoIncrement = false)]
     public class FailedTransaction : EntityBase
     {
-        //[ForeignKey(typeof(Participation), Name = "FK_FailedTransaction_Participation")]
+        [ForeignKey(typeof(Participation), Name = "FK_FailedTransaction_Participation")]
         public Guid ParticipationId { get; set; }
 
-        //[ResultColumn]
+        [ResultColumn]
         public Participation Participation { get; set; }
 
         public string Firstname { get; set; }
@@ -24,7 +24,7 @@ namespace Swift.Umbraco.Models.Domain
 
         public string Street1 { get; set; }
 
-        //[NullSetting(NullSetting = NullSettings.Null)]
+        [NullSetting(NullSetting = NullSettings.Null)]
         public string Street2 { get; set; }
 
         public string City { get; set; }

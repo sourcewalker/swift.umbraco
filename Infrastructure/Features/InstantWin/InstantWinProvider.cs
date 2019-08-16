@@ -2,23 +2,24 @@
 using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Factory;
 using Swift.Umbraco.Infrastructure.InstantWin.Generator.Factory;
 using Swift.Umbraco.Infrastructure.Interfaces;
-using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System;
 
 namespace Swift.Umbraco.Infrastructure.InstantWin.Generator
 {
     public class InstantWinProvider : IInstantWinMomentProvider
     {
-        public IList<DateTimeOffset> GenerateWinningMoments(GeneratorConfig config)
+        public async Task<IList<DateTimeOffset>> GenerateWinningMoments(GeneratorConfig config)
         {
             var generator = GeneratorFactory.Create(ProviderConfiguration.Generator.algorithm);
-            return generator.Generate(config);
+            return await Task.Run(() => generator.Generate(config));
         }
 
-        public IList<(Guid Id, string Name)> AllocatePrizes(IList<Allocable> allocable, int instantWinNumber)
+        public async Task<IList<(Guid Id, string Name)>> AllocatePrizes(IList<Allocable> allocable, int instantWinNumber)
         {
             var allocator = AllocatorFactory.Create(ProviderConfiguration.Allocator.algorithm);
-            return allocator.Allocate(allocable, instantWinNumber);
+            return await Task.Run(() => allocator.Allocate(allocable, instantWinNumber));
         }
     }
 }
