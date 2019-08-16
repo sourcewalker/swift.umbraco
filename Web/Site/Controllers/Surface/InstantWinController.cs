@@ -1,10 +1,10 @@
-﻿using Swift.Umbraco.Business.Interfaces;
+﻿using Swift.Umbraco.Business.Service.Interfaces;
 using Swift.Umbraco.Models.DTO;
+using Swift.Umbraco.Web.Extensions.Storage;
+using Swift.Umbraco.Web.Models;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Mvc;
-using Swift.Umbraco.Web.Extensions.Storage;
-using Swift.Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
 
 namespace Swift.Umbraco.Web.Controllers.Surface
@@ -14,12 +14,15 @@ namespace Swift.Umbraco.Web.Controllers.Surface
         private readonly IParticipationService _participationService;
         private readonly IValidationService _validationService;
         private readonly IInstantWinService _instantWinService;
+        private readonly IConfigurationService _configurationService;
 
         public InstantWinController(
+            IConfigurationService configurationService,
             IParticipationService participationService,
             IValidationService validationService,
             IInstantWinService instantWinService)
         {
+            _configurationService = configurationService;
             _participationService = participationService;
             _validationService = validationService;
             _instantWinService = instantWinService;
@@ -65,8 +68,8 @@ namespace Swift.Umbraco.Web.Controllers.Surface
             var instantWinResult = await _participationService.UpdateInstantWinStatusAsync(participation);
 
             var congratsOrLosePageId = instantWinResult.winStatus ?
-                                        _instantWinService.GetCongratulationPageId() :
-                                        _instantWinService.GetLosePageId();
+                                        _configurationService.GetCongratulationPageId() :
+                                        _configurationService.GetLosePageId();
 
             return RedirectToUmbracoPage(congratsOrLosePageId);
         }

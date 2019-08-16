@@ -1,9 +1,9 @@
-﻿using System.Configuration;
-using System.Threading.Tasks;
-using Swift.Umbraco.Business.Interfaces;
+﻿using Swift.Umbraco.Business.Service.Interfaces;
 using Swift.Umbraco.Infrastructure.Interfaces;
 using Swift.Umbraco.Infrastructure.ProCampaign.Models;
 using Swift.Umbraco.Models.DTO;
+using System.Configuration;
+using System.Threading.Tasks;
 
 namespace Swift.Umbraco.Business.Journey
 {
@@ -59,7 +59,7 @@ namespace Swift.Umbraco.Business.Journey
             return new CrmResponse
             {
                 Success = consumer.GetSetting<bool>("Success"),
-                ConsumerId = consumer.GetSetting<bool>("Success") ? 
+                ConsumerId = consumer.GetSetting<bool>("Success") ?
                                 (string)consumer.Data.Data.ConsumerId : string.Empty,
                 ApiStatus = consumer.GetSetting<int>("ApiStatus").ToString(),
                 ApiMessage = consumer.GetSetting<string>("ApiMessage")

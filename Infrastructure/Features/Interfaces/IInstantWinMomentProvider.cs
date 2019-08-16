@@ -1,14 +1,14 @@
-﻿using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Model;
-using Swift.Umbraco.Models.Domain;
+﻿using Models.DTO;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Swift.Umbraco.Infrastructure.Interfaces
 {
     public interface IInstantWinMomentProvider
     {
-        IList<DateTime> GenerateWinningMoments();
+        Task<IList<DateTimeOffset>> GenerateWinningMoments(GeneratorConfig config);
 
-        IList<(Guid Id, string Name)> AllocatePrizes(IList<Allocable> allocable, int instantWinNumber);
+        Task<IList<(Guid Id, string Name)>> AllocatePrizes(IList<Allocable> allocable, int instantWinNumber);
     }
 }

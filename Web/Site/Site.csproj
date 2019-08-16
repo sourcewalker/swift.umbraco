@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Swift.Umbraco.Site</RootNamespace>
-    <AssemblyName>Swift.Umbraco.Site</AssemblyName>
+    <RootNamespace>Swift.Umbraco.Web</RootNamespace>
+    <AssemblyName>Swift.Umbraco.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -318,7 +318,21 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
-    <Content Include="App_Plugins\Tools\Hangfire\hangfire.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\awaiting.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\deleted.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\enqueued.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\failed.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\jobs.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\processing.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\recurring.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\retries.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\scheduled.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\server.png" />
+    <Content Include="App_Plugins\Tools\Hangfire\succeeded.png" />
+    <Content Include="App_Plugins\Tools\InstantWin\InDatabase.html" />
+    <Content Include="App_Plugins\Tools\InstantWin\InFile.html" />
+    <Content Include="App_Plugins\Tools\InstantWin\instantwin.controller.js" />
+    <Content Include="App_Plugins\Tools\InstantWin\instantwin.resource.js" />
     <Content Include="App_Plugins\Tools\Lang\en-US.xml" />
     <Content Include="App_Plugins\uLogs\app.html" />
     <Content Include="App_Plugins\uLogs\assets\scripts\app.js" />
@@ -1970,11 +1984,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Plugins\Tools\Application\ToolsSection.cs" />
+    <Compile Include="App_Plugins\Tools\Section\ToolsSection.cs" />
     <Compile Include="App_Start\AutoMapperHandler.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\StartupHandler.cs" />
     <Compile Include="App_Start\WebApplication.cs" />
+    <Compile Include="Controllers\Backoffice\InstantWinApiController.cs" />
+    <Compile Include="Controllers\Backoffice\InstantWinTreeController.cs" />
     <Compile Include="Controllers\Render\BaseController.cs" />
     <Compile Include="Controllers\Render\HomepageController.cs" />
     <Compile Include="Controllers\Render\ParticipationFlowController.cs" />
@@ -2029,6 +2045,7 @@
     <Content Include="App_Plugins\uSync.Content\package.manifest" />
     <Content Include="App_Plugins\uLogs\package.manifest" />
     <Content Include="config\IISRewriteRules.config" />
+    <Content Include="App_Plugins\Tools\package.manifest" />
     <None Include="packages.config" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.eot" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.ttf" />
@@ -2250,13 +2267,13 @@
       <Project>{adb00176-a4f3-40c8-9880-131264b24a20}</Project>
       <Name>Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core\DAL\DAL.csproj">
-      <Project>{6bf61743-b5b5-4b1d-84a3-5903fc60521a}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\Models\Models.csproj">
       <Project>{f74b833c-4331-4694-b605-4ebc907681c6}</Project>
       <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\DAL\DAL.csproj">
+      <Project>{6bf61743-b5b5-4b1d-84a3-5903fc60521a}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Features\Features.csproj">
       <Project>{a6eb99e2-6400-49ae-9257-be85fd8cce92}</Project>

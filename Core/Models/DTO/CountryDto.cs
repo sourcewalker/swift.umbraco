@@ -6,9 +6,9 @@ namespace Swift.Umbraco.Models.DTO
     {
         public Guid Id { get; set; }
 
-        public DateTime CreatedOn { get; set; }
+        public DateTimeOffset CreatedOn { get; set; }
 
-        public DateTime UpdatedOn { get; set; }
+        public DateTimeOffset UpdatedOn { get; set; }
 
         public string Name { get; set; }
 

@@ -15,21 +15,21 @@ namespace Swift.Umbraco.Models.Domain
         public Participant Participant { get; set; }
 
         [NullSetting(NullSetting = NullSettings.Null)]
-        //[ForeignKey(typeof(Prize), Name = "FK_Participation_Prize")]
+        [ForeignKey(typeof(Prize), Name = "FK_Participation_Prize")]
         public Guid? PrizeId { get; set; }
 
         [ResultColumn]
         public Prize Prize { get; set; }
 
         [NullSetting(NullSetting = NullSettings.Null)]
-        //[ForeignKey(typeof(InstantWinMoment), Name = "FK_Participation_InstantWinMoment")]
+        [ForeignKey(typeof(InstantWinMoment), Name = "FK_Participation_InstantWinMoment")]
         public Guid? InstanWinMomentId { get; set; }
 
         [ResultColumn]
         public InstantWinMoment InstantWinMoment { get; set; }
 
         [NullSetting(NullSetting = NullSettings.Null)]
-        //[ForeignKey(typeof(Country), Name = "FK_Participation_Country")]
+        [ForeignKey(typeof(Country), Name = "FK_Participation_Country")]
         public Guid? CountryId { get; set; }
 
         [ResultColumn]

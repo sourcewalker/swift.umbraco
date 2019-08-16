@@ -1,7 +1,12 @@
-﻿using Swift.Umbraco.Business.Interfaces;
-using Swift.Umbraco.DAL.Interfaces;
+﻿using Models.DTO;
+using Swift.Umbraco.Business.Manager.Interfaces;
+using Swift.Umbraco.Business.Service.Interfaces;
+using Swift.Umbraco.Infrastructure.Interfaces;
 using Swift.Umbraco.Models.DTO;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Swift.Umbraco.Business.Journey
 {
@@ -10,16 +15,16 @@ namespace Swift.Umbraco.Business.Journey
         private static readonly object _instantWinLock = new object();
         private readonly IInstantWinMomentManager _instantWinManager;
         private readonly IPrizeManager _prizeManager;
-        private readonly IPublishedContentManager _contentManager;
+        private readonly IInstantWinMomentProvider _instantWinProvider;
 
         public InstantWinService(
             IInstantWinMomentManager instantWinManager,
-            IPrizeManager prizeManager,
-            IPublishedContentManager contentManager)
+            IInstantWinMomentProvider instantWinProvider,
+            IPrizeManager prizeManager)
         {
             _instantWinManager = instantWinManager;
+            _instantWinProvider = instantWinProvider;
             _prizeManager = prizeManager;
-            _contentManager = contentManager;
         }
 
         public (bool isWinner, PrizeDto prize, InstantWinMomentDto instantWin) WinCheck()
@@ -45,18 +50,42 @@ namespace Swift.Umbraco.Business.Journey
             return (isWinner, prizeDto, momentDto);
         }
 
-        public int GetCongratulationPageId()
+        public async Task<(bool status, int generatedNumber)> GenerateInstantWinMoments(
+            GeneratorConfig config, List<Allocable> allocables)
         {
-            var congratsPage = _contentManager.GetTypedContentAtXPath("//congratulations")
-                                            .First(c => c.Name == "Congratulations");
-            return congratsPage.Id;
+            var instantList = await _instantWinProvider.GenerateWinningMoments(config);
+
+            var allocatedPrizes = await _instantWinProvider.AllocatePrizes(allocables, instantList.Count);
+
+            var counter = 0;
+            for (var index = 0; index < instantList.Count; index++)
+            {
+                var instantWin = new InstantWinMomentDto
+                {
+                    Id = Guid.NewGuid(),
+                    PrizeId = allocatedPrizes[index].Id,
+                    IsWon = false,
+                    CreatedOn = DateTime.UtcNow,
+                    ActivationDate = instantList[index]
+                };
+                _instantWinManager.Create(instantWin);
+                counter++;
+            }
+
+            return (counter == instantList.Count, counter);
         }
 
-        public int GetLosePageId()
+        public async Task<IEnumerable<PrizeDto>> GetPrizes()
         {
-            var lostPage = _contentManager.GetTypedContentAtXPath("//lost")
-                                            .First(c => c.Name == "Lose");
-            return lostPage.Id;
+            return await Task.Run(() => _prizeManager.FindAll());
+        }
+
+        public async Task<IEnumerable<string>> GetLimitOptions()
+        {
+            return await Task.Run(() =>
+                Enum.GetValues(typeof(GeneratorLimitOptions))
+                    .Cast<GeneratorLimitOptions>()
+                    .Select(x => x.ToString()));
         }
     }
 }

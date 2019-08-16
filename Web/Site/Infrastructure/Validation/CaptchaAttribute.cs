@@ -1,4 +1,4 @@
-﻿using Swift.Umbraco.Business.Interfaces;
+﻿using Swift.Umbraco.Business.Service.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Http;
 

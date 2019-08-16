@@ -1,10 +1,10 @@
-﻿using Swift.Umbraco.Business.Interfaces;
-using Swift.Umbraco.DAL.Interfaces;
+﻿using Swift.Umbraco.Business.Helper;
+using Swift.Umbraco.Business.Manager.Interfaces;
+using Swift.Umbraco.Business.Service.Interfaces;
 using Swift.Umbraco.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Swift.Umbraco.Business.Helper;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
@@ -49,6 +49,20 @@ namespace Swift.Umbraco.Business.Configuration
         {
             return _contentManager.GetTypedContentSingleAtXPath("//configurationContainer/activations")
                                                    .GetPropertyValue<IEnumerable<IPublishedContent>>("notRedirectedPages");
+        }
+
+        public int GetCongratulationPageId()
+        {
+            var congratsPage = _contentManager.GetTypedContentAtXPath("//congratulations")
+                                            .First(c => c.Name == "Congratulations");
+            return congratsPage.Id;
+        }
+
+        public int GetLosePageId()
+        {
+            var lostPage = _contentManager.GetTypedContentAtXPath("//lost")
+                                            .First(c => c.Name == "Lose");
+            return lostPage.Id;
         }
     }
 }

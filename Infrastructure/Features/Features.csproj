@@ -64,9 +64,7 @@
     <Compile Include="InstantWin\Allocator\Algorithms\WeightedAlgorithm.cs" />
     <Compile Include="InstantWin\Allocator\Algorithms\BlindAlgorithm.cs" />
     <Compile Include="InstantWin\Allocator\Factory\AllocatorFactory.cs" />
-    <Compile Include="InstantWin\Allocator\Model\Allocable.cs" />
     <Compile Include="InstantWin\Enum\GeneratorAlgorithms.cs" />
-    <Compile Include="InstantWin\Enum\GeneratorLimitOptions.cs" />
     <Compile Include="InstantWin\Generator\Algorithms\DivideAndConquerAlgorithm.cs" />
     <Compile Include="InstantWin\Generator\Factory\GeneratorFactory.cs" />
     <Compile Include="InstantWin\InstantWinProvider.cs" />
