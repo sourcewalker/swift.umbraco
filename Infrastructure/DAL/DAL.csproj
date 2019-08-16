@@ -213,10 +213,10 @@
     <Compile Include="Managers\ConsumerManager.cs" />
     <Compile Include="Managers\CountryManager.cs" />
     <Compile Include="Managers\FailedTransactionManager.cs" />
-    <Compile Include="Petapoco\GenericManager.cs" />
     <Compile Include="Managers\InstantWinMomentManager.cs" />
     <Compile Include="Managers\ParticipantManager.cs" />
     <Compile Include="Managers\ParticipationManager.cs" />
+    <Compile Include="Petapoco\GenericManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Managers\PrizeManager.cs" />
     <Compile Include="Umbraco\ContentServiceManager.cs" />
