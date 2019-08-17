@@ -87,5 +87,23 @@ namespace Swift.Umbraco.Business.Journey
                     .Cast<GeneratorLimitOptions>()
                     .Select(x => x.ToString()));
         }
+
+        public async Task<IEnumerable<Allocable>> GetAllocables()
+        {
+            return await Task.Run(() =>
+                    _prizeManager.FindAll().Select(p =>
+                        new Allocable
+                        {
+                            Id = p.Id,
+                            Name = p.Name,
+                            Number = 0
+                        })
+                );
+        }
+
+        public async Task<IEnumerable<InstantWinMomentDto>> GetMoments()
+        {
+            return await Task.Run(() => _instantWinManager.FindPaged());
+        }
     }
 }

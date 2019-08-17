@@ -4,6 +4,7 @@ using Swift.Umbraco.Models.Domain;
 using Swift.Umbraco.Models.DTO;
 using Swift.Umbraco.Models.Mapping.Helper;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Swift.Umbraco.DAL.Entities
@@ -43,6 +44,11 @@ namespace Swift.Umbraco.DAL.Entities
         public bool Create(InstantWinMomentDto momentDto)
         {
             return Create(momentDto);
+        }
+
+        public IEnumerable<InstantWinMomentDto> FindPaged()
+        {
+            return GetAll().Take(3).toDtos();
         }
     }
 }

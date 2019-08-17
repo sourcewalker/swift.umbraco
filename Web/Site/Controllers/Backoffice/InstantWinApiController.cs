@@ -1,17 +1,14 @@
 ﻿using Models.DTO;
-using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Threading.Tasks;
-using System.Web.Mvc;
+using Swift.Umbraco.Business.Service.Interfaces;
+using Swift.Umbraco.Web.Extensions.Moment;
 using Swift.Umbraco.Web.Models;
+using System;
+using System.Dynamic;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Http;
 using Umbraco.Web.Mvc;
 using Umbraco.Web.WebApi;
-using Swift.Umbraco.Business.Service.Interfaces;
-using Umbraco.Web.Editors;
-using System.Net.Http;
-using System.Web.Http;
-using System.Net;
 
 namespace Swift.Umbraco.Web.Controllers.Backoffice
 {
@@ -25,7 +22,7 @@ namespace Swift.Umbraco.Web.Controllers.Backoffice
             _instantWinService = instantWinService;
         }
 
-        [System.Web.Http.HttpGet]
+        [HttpGet]
         public async Task<IHttpActionResult> GetPrizes()
         {
             dynamic data = new ExpandoObject();
@@ -56,7 +53,69 @@ namespace Swift.Umbraco.Web.Controllers.Backoffice
             }
         }
 
-        [System.Web.Http.HttpGet]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetAllocables()
+        {
+            dynamic data = new ExpandoObject();
+            try
+            {
+                var prizes = await _instantWinService.GetAllocables();
+                data.Description = "Allocable list returned successfully";
+                data.Allocables = prizes;
+
+                var response = new ApiResponse
+                {
+                    Success = true,
+                    Message = "SUCCESS",
+                    Data = data
+                };
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                data.Description = e.Message;
+                var apiResponse = new ApiResponse
+                {
+                    Success = false,
+                    Message = "FAILED",
+                    Data = data
+                };
+                return Content(HttpStatusCode.InternalServerError, apiResponse);
+            }
+        }
+
+        [HttpGet]
+        public async Task<IHttpActionResult> GetMoments()
+        {
+            dynamic data = new ExpandoObject();
+            try
+            {
+                var moments = await _instantWinService.GetMoments();
+                data.Description = "Prize list returned successfully";
+                data.Moments = moments;
+
+                var response = new ApiResponse
+                {
+                    Success = true,
+                    Message = "SUCCESS",
+                    Data = data
+                };
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                data.Description = e.Message;
+                var apiResponse = new ApiResponse
+                {
+                    Success = false,
+                    Message = "FAILED",
+                    Data = data
+                };
+                return Content(HttpStatusCode.InternalServerError, apiResponse);
+            }
+        }
+
+        [HttpGet]
         public async Task<IHttpActionResult> GetLimitOptions()
         {
             dynamic data = new ExpandoObject();
@@ -87,13 +146,23 @@ namespace Swift.Umbraco.Web.Controllers.Backoffice
             }
         }
 
-        [System.Web.Http.HttpPost]
-        public async Task<IHttpActionResult> Generate(GeneratorConfig config, List<Allocable> allocable)
+        [HttpPost]
+        public async Task<IHttpActionResult> Generate(GenerationModel model)
         {
             dynamic data = new ExpandoObject();
+
             try
             {
-                var generationResponse = await _instantWinService.GenerateInstantWinMoments(config, allocable);
+                var config = new GeneratorConfig
+                {
+                    StartDate = model.StartDate,
+                    EndDate = model.EndDate,
+                    OpenTime = model.OpenTime.ToTodayDateTime(),
+                    CloseTime = model.CloseTime.ToTodayDateTime(),
+                    LimitNumber = model.LimitNumber,
+                    LimitOption = model.LimitOption
+                };
+                var generationResponse = await _instantWinService.GenerateInstantWinMoments(config, model.Allocable);
                 data.GeneratedNumber = generationResponse.generatedNumber;
 
                 var response = new ApiResponse

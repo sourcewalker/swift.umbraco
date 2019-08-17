@@ -329,11 +329,18 @@
     <Content Include="App_Plugins\Tools\Hangfire\scheduled.png" />
     <Content Include="App_Plugins\Tools\Hangfire\server.png" />
     <Content Include="App_Plugins\Tools\Hangfire\succeeded.png" />
-    <Content Include="App_Plugins\Tools\InstantWin\InDatabase.html" />
-    <Content Include="App_Plugins\Tools\InstantWin\InFile.html" />
-    <Content Include="App_Plugins\Tools\InstantWin\instantwin.controller.js" />
-    <Content Include="App_Plugins\Tools\InstantWin\instantwin.resource.js" />
+    <Content Include="App_Plugins\Tools\InstantWin\Filters\instantwin.filter.js" />
+    <Content Include="App_Plugins\Tools\InstantWin\Generator\generators.controller.js" />
+    <Content Include="App_Plugins\Tools\InstantWin\Generator\generators.html" />
+    <Content Include="App_Plugins\Tools\InstantWin\Generator\generators.resource.js" />
+    <Content Include="App_Plugins\Tools\InstantWin\Prizes\prizes.controller.js" />
+    <Content Include="App_Plugins\Tools\InstantWin\Prizes\prizes.html" />
+    <Content Include="App_Plugins\Tools\InstantWin\Prizes\prizes.resource.js" />
+    <Content Include="App_Plugins\Tools\InstantWin\Slots\slots.controller.js" />
+    <Content Include="App_Plugins\Tools\InstantWin\Slots\slots.html" />
+    <Content Include="App_Plugins\Tools\InstantWin\Slots\slots.resource.js" />
     <Content Include="App_Plugins\Tools\Lang\en-US.xml" />
+    <Content Include="App_Plugins\Tools\package.manifest" />
     <Content Include="App_Plugins\uLogs\app.html" />
     <Content Include="App_Plugins\uLogs\assets\scripts\app.js" />
     <Content Include="App_Plugins\uLogs\assets\scripts\vendors.min.js" />
@@ -1997,6 +2004,7 @@
     <Compile Include="Controllers\Api\ParticipationController.cs" />
     <Compile Include="Controllers\Surface\InstantWinController.cs" />
     <Compile Include="Extensions\Backoffice\Tree\TaskManagerTree.cs" />
+    <Compile Include="Extensions\Moment\TimeSpanHelper.cs" />
     <Compile Include="Extensions\Storage\FileHelper.cs" />
     <Compile Include="Infrastructure\Filters\UmbracoAuthorizationFilter.cs" />
     <Compile Include="Infrastructure\Injection\UnityConfig.cs" />
@@ -2010,6 +2018,7 @@
     <Compile Include="Models\ApiResponse.cs" />
     <Compile Include="Models\DataLayerModel.cs" />
     <Compile Include="Models\EmailRequest.cs" />
+    <Compile Include="Models\GenerationModel.cs" />
     <Compile Include="Models\LogoWinRequest.cs" />
     <Compile Include="Models\RewardRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2045,7 +2054,6 @@
     <Content Include="App_Plugins\uSync.Content\package.manifest" />
     <Content Include="App_Plugins\uLogs\package.manifest" />
     <Content Include="config\IISRewriteRules.config" />
-    <Content Include="App_Plugins\Tools\package.manifest" />
     <None Include="packages.config" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.eot" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.ttf" />
