@@ -1,12 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Swift.Umbraco.Infrastructure.Hangfire;
+using Swift.Umbraco.Infrastructure.Features.Hangfire;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Swift.Umbraco.Infrastructure.Hangfire.Tests
+namespace Swift.Umbraco.Infrastructure.Features.Hangfire.Tests
 {
     [TestClass()]
     public class HangfireProviderTests

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
-namespace Swift.Umbraco.DAL.Umbraco
+namespace Swift.Umbraco.Infrastructure.DAL.Umbraco
 {
     public class PublishedContentManager : IPublishedContentManager
     {

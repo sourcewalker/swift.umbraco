@@ -1,7 +1,7 @@
 ﻿using Models.DTO;
 using System;
 
-namespace Swift.Umbraco.Infrastructure.InstantWin
+namespace Swift.Umbraco.Infrastructure.Features.InstantWin
 {
     public struct ProviderConfiguration
     {

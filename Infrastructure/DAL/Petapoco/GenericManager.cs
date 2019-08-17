@@ -7,7 +7,7 @@ using Umbraco.Core;
 using Umbraco.Core.Persistence;
 using Umbraco.Core.Persistence.SqlSyntax;
 
-namespace Swift.Umbraco.DAL.Petapoco
+namespace Swift.Umbraco.Infrastructure.DAL.Petapoco
 {
     public class GenericManager<TEntityType> : IGenericManager<TEntityType> where TEntityType : EntityBase
     {

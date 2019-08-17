@@ -1,15 +1,15 @@
 ﻿using Hangfire;
 using Hangfire.Storage;
 using Hangfire.Storage.Monitoring;
-using Swift.Umbraco.Infrastructure.Interfaces;
-using Swift.Umbraco.Infrastructure.ProCampaign.Models;
+using Swift.Umbraco.Infrastructure.Features.Interfaces;
+using Swift.Umbraco.Infrastructure.Features.ProCampaign.Models;
 using Swift.Umbraco.Models.DTO;
 using Newtonsoft.Json;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Swift.Umbraco.Infrastructure.Hangfire
+namespace Swift.Umbraco.Infrastructure.Features.Hangfire
 {
     public class HangfireProvider : ISchedulerProvider
     {

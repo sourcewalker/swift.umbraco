@@ -1,6 +1,6 @@
 ﻿using Swift.Umbraco.Business.Service.Interfaces;
-using Swift.Umbraco.Infrastructure.Interfaces;
-using Swift.Umbraco.Infrastructure.ProCampaign.Models;
+using Swift.Umbraco.Infrastructure.Features.Interfaces;
+using Swift.Umbraco.Infrastructure.Features.ProCampaign.Models;
 using Swift.Umbraco.Models.DTO;
 using System.Configuration;
 using System.Threading.Tasks;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Swift.Umbraco.Infrastructure.LogoGrab.Models
+namespace Swift.Umbraco.Infrastructure.Features.LogoGrab.Models
 {
     public class Data
     {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Swift.Umbraco.Infrastructure.Interfaces
+namespace Swift.Umbraco.Infrastructure.Features.Interfaces
 {
     public interface IInstantWinMomentProvider
     {

@@ -1,12 +1,12 @@
-﻿using Swift.Umbraco.Infrastructure.Interfaces;
-using Swift.Umbraco.Infrastructure.ProCampaign.Constants;
-using Swift.Umbraco.Infrastructure.ProCampaign.Helper;
-using Swift.Umbraco.Infrastructure.ProCampaign.Models;
+﻿using Swift.Umbraco.Infrastructure.Features.Interfaces;
+using Swift.Umbraco.Infrastructure.Features.ProCampaign.Constants;
+using Swift.Umbraco.Infrastructure.Features.ProCampaign.Helper;
+using Swift.Umbraco.Infrastructure.Features.ProCampaign.Models;
 using Swift.Umbraco.Models.DTO;
 using System;
 using System.Threading.Tasks;
 
-namespace Swift.Umbraco.Infrastructure.ProCampaign.Provider
+namespace Swift.Umbraco.Infrastructure.Features.ProCampaign.Provider
 {
     public class ConsumerProvider : ICrmConsumerProvider
     {

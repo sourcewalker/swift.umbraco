@@ -1,5 +1,5 @@
 ﻿using Swift.Umbraco.Business.Manager.Interfaces;
-using Swift.Umbraco.DAL.Petapoco;
+using Swift.Umbraco.Infrastructure.DAL.Petapoco;
 using Swift.Umbraco.Models.Domain;
 using Swift.Umbraco.Models.DTO;
 using Swift.Umbraco.Models.Mapping.Helper;
@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Swift.Umbraco.DAL.Entities
+namespace Swift.Umbraco.Infrastructure.DAL.Entities
 {
     public class InstantWinMomentManager : GenericManager<InstantWinMoment>, IInstantWinMomentManager
     {

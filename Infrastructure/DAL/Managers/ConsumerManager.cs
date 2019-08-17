@@ -1,10 +1,10 @@
 ﻿using Swift.Umbraco.Business.Manager.Interfaces;
-using Swift.Umbraco.DAL.Petapoco;
+using Swift.Umbraco.Infrastructure.DAL.Petapoco;
 using Swift.Umbraco.Models.Domain;
 using Swift.Umbraco.Models.Enum;
 using System;
 
-namespace Swift.Umbraco.DAL.Entities
+namespace Swift.Umbraco.Infrastructure.DAL.Entities
 {
     public class ConsumerManager : GenericManager<Consumer>, IConsumerManager
     {

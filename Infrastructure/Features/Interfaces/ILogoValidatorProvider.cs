@@ -1,7 +1,7 @@
-﻿using Swift.Umbraco.Infrastructure.LogoGrab.Models;
+﻿using Swift.Umbraco.Infrastructure.Features.LogoGrab.Models;
 using System.Threading.Tasks;
 
-namespace Swift.Umbraco.Infrastructure.Interfaces
+namespace Swift.Umbraco.Infrastructure.Features.Interfaces
 {
     public interface ILogoValidatorProvider
     {

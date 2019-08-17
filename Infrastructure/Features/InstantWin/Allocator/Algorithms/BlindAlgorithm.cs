@@ -1,10 +1,10 @@
 ﻿using Models.DTO;
-using Swift.Umbraco.Infrastructure.InstantWin.Interfaces;
+using Swift.Umbraco.Infrastructure.Features.InstantWin.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Swift.Umbraco.Infrastructure.InstantWin.Allocator.Algorithms
+namespace Swift.Umbraco.Infrastructure.Features.InstantWin.Allocator.Algorithms
 {
     public class BlindAlgorithm : IAllocator
     {

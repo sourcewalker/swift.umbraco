@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Swift.Umbraco.Infrastructure.InstantWin.Interfaces
+namespace Swift.Umbraco.Infrastructure.Features.InstantWin.Interfaces
 {
     public interface IAllocator
     {
