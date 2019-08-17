@@ -30,7 +30,11 @@ namespace Swift.Umbraco.DAL.Entities
             //                            !moment.IsWon &&
             //                            moment.ActivationDate.ToUniversalTime() <= DateTime.UtcNow, _sqlProvider)
             //                .OrderBy<InstantWinMoment>(m => m.ActivationDate, _sqlProvider);
-            var sqlQuery = "SELECT * FROM InstantWinMoment WHERE IsWon = 'False' AND ActivationDate <= @0 ORDER BY ActivationDate";
+            var sqlQuery = "SELECT * " +
+                           "FROM InstantWinMoment " +
+                           "WHERE IsWon = 'False' " +
+                                "AND ActivationDate <= @0 " +
+                           "ORDER BY ActivationDate";
             return _database.Fetch<InstantWinMoment>(sqlQuery, DateTime.UtcNow).FirstOrDefault().toDto();
         }
 
