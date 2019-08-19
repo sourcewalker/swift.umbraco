@@ -50,15 +50,14 @@ namespace Swift.Umbraco.Business.Journey
             return (isWinner, prizeDto, momentDto);
         }
 
-        public async Task<(bool status, int generatedNumber)> GenerateInstantWinMoments(
-            GeneratorConfig config, List<Allocable> allocables)
+        public async Task<(bool status, int generatedNumber)> GenerateInstantWinMoments(GeneratorConfig config, List<Allocable> allocables)
         {
             var instantList = await _instantWinProvider.GenerateWinningMoments(config);
 
             var allocatedPrizes = await _instantWinProvider.AllocatePrizes(allocables, instantList.Count);
 
             var counter = 0;
-            for (var index = 0; index < instantList.Count; index++)
+            for (int index = 0; index < allocatedPrizes.Count; index++)
             {
                 var instantWin = new InstantWinMomentDto
                 {
@@ -72,20 +71,12 @@ namespace Swift.Umbraco.Business.Journey
                 counter++;
             }
 
-            return (counter == instantList.Count, counter);
+            return (counter == allocatedPrizes.Count, counter);
         }
 
         public async Task<IEnumerable<PrizeDto>> GetPrizes()
         {
             return await Task.Run(() => _prizeManager.FindAll());
-        }
-
-        public async Task<IEnumerable<string>> GetLimitOptions()
-        {
-            return await Task.Run(() =>
-                Enum.GetValues(typeof(GeneratorLimitOptions))
-                    .Cast<GeneratorLimitOptions>()
-                    .Select(x => x.ToString()));
         }
 
         public async Task<IEnumerable<Allocable>> GetAllocables()
@@ -104,6 +95,14 @@ namespace Swift.Umbraco.Business.Journey
         public async Task<IEnumerable<InstantWinMomentDto>> GetMoments()
         {
             return await Task.Run(() => _instantWinManager.FindPaged());
+        }
+
+        public async Task<IEnumerable<string>> GetLimitOptions()
+        {
+            return await Task.Run(() =>
+                Enum.GetValues(typeof(GeneratorLimitOptions))
+                    .Cast<GeneratorLimitOptions>()
+                    .Select(x => x.ToString()));
         }
     }
 }

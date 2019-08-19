@@ -14,7 +14,9 @@ namespace Swift.Umbraco.Infrastructure.Features.InstantWin.Allocator.Algorithms
 
             var random = new Random();
 
-            for (var index = 0; index < instantWinNumber; index++)
+            int loopNumber = Math.Min(instantWinNumber, allocable.Sum(a => a.Number));
+
+            for (int index = 0; index < loopNumber; index++)
             {
                 allocable = allocable.Where(p => p.Number > 0)
                                .OrderByDescending(p => p.Number)
@@ -36,7 +38,7 @@ namespace Swift.Umbraco.Infrastructure.Features.InstantWin.Allocator.Algorithms
         {
             var ponderedIndex = 0;
 
-            for (var index = 0; index < allocables.Count; index++)
+            for (int index = 0; index < allocables.Count; index++)
             {
                 var ranIndex = random.Next(instantWinNumber);
                 var result = ranIndex - allocables[index].Number;

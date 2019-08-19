@@ -44,7 +44,7 @@ namespace Swift.Umbraco.Infrastructure.Features.InstantWin.Generator.Algorithms
 
             do
             {
-                for (var i = 1; i <= limitPerInterval; i++)
+                for (int i = 1; i <= limitPerInterval; i++)
                 {
                     random.NextBytes(bytes);
                     var ranDouble = randomAddition.NextDouble();
@@ -73,7 +73,7 @@ namespace Swift.Umbraco.Infrastructure.Features.InstantWin.Generator.Algorithms
                 firstIntervalDate = nextInterval.nextIntervalStart;
                 lastIntervalDate = nextInterval.nextIntervalEnd;
             }
-            while (lastIntervalDate < endDate);
+            while (lastIntervalDate <= endDate);
 
             return dateList;
         }
@@ -107,22 +107,29 @@ namespace Swift.Umbraco.Infrastructure.Features.InstantWin.Generator.Algorithms
         {
             var nextIntervalStart = previousIntervalEnd;
 
-            if (limitOption == GeneratorLimitOptions.LimitPerHour)
+            //if (limitOption == GeneratorLimitOptions.LimitPerHour)
+            //{
+            if (nextIntervalStart.TimeOfDay < openHour.TimeOfDay)
             {
-                if (nextIntervalStart.TimeOfDay < openHour.TimeOfDay)
-                {
-                    nextIntervalStart = nextIntervalStart.Date + openHour.TimeOfDay;
-                }
-
-                if (closeHour.TimeOfDay <= nextIntervalStart.TimeOfDay)
-                {
-                    nextIntervalStart = nextIntervalStart.AddDays(1).Date + openHour.TimeOfDay;
-                }
+                nextIntervalStart = nextIntervalStart.Date + openHour.TimeOfDay;
             }
 
-            var nextIntervalEnd = EndLimit <= (nextIntervalStart + intervalLength) ?
-                                    EndLimit :
-                                    (nextIntervalStart + intervalLength);
+            if (closeHour.TimeOfDay <= nextIntervalStart.TimeOfDay)
+            {
+                nextIntervalStart = nextIntervalStart.AddDays(1).Date + openHour.TimeOfDay;
+            }
+            //}
+
+            DateTimeOffset nextIntervalEnd;
+
+            if (EndLimit <= (nextIntervalStart + intervalLength))
+            {
+                nextIntervalEnd = EndLimit;
+            }
+            else
+            {
+                nextIntervalEnd = nextIntervalStart + intervalLength;
+            }
 
             if (nextIntervalStart > nextIntervalEnd)
             {

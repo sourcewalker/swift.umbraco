@@ -7,5 +7,5 @@
     };
 }
 
-var app = angular.module('umbraco.filters');
-app.filter('wonfilter', WonFilter); 
+angular.module('umbraco.filters')
+       .filter('wonfilter', WonFilter); 

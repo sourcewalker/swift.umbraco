@@ -15,10 +15,10 @@ namespace Swift.Umbraco.Business.Service.Interfaces
 
         Task<IEnumerable<PrizeDto>> GetPrizes();
 
-        Task<IEnumerable<string>> GetLimitOptions();
-
         Task<IEnumerable<Allocable>> GetAllocables();
 
         Task<IEnumerable<InstantWinMomentDto>> GetMoments();
+
+        Task<IEnumerable<string>> GetLimitOptions();
     }
 }

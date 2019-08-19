@@ -29,7 +29,7 @@ namespace Swift.Umbraco.Infrastructure.Features.InstantWin
 
         public struct Allocator
         {
-            public static AllocatorAlgorithms algorithm = AllocatorAlgorithms.Fair;
+            public static AllocatorAlgorithms algorithm = AllocatorAlgorithms.Weighted;
         }
     }
 }
