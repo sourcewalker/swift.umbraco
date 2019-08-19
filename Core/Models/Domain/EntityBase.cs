@@ -8,9 +8,9 @@ namespace Swift.Umbraco.Models.Domain
         [PrimaryKeyColumn(AutoIncrement = false)]
         public Guid Id { get; set; }
 
-        public DateTimeOffset CreatedOn { get; set; }
+        public DateTime CreatedOn { get; set; }
 
         [NullSetting(NullSetting = NullSettings.Null)]
-        public DateTimeOffset UpdatedOn { get; set; }
+        public DateTime UpdatedOn { get; set; }
     }
 }

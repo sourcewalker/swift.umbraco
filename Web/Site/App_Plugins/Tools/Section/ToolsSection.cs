@@ -1,7 +1,7 @@
 ﻿using umbraco.businesslogic;
 using umbraco.interfaces;
 
-namespace Trebor.Cash.In.Flash.Web.App_Plugins.Tools.Application
+namespace Swift.Umbraco.Web.App_Plugins.Tools.Section
 {
     [Application(
         alias: "tools",

@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Swift.Umbraco.Infrastructure.ProCampaign.Provider.Tests
+namespace Swift.Umbraco.Infrastructure.Features.ProCampaign.Provider.Tests
 {
     [TestClass()]
     public class ConsumerProviderTests

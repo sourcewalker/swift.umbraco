@@ -1,5 +1,5 @@
 ﻿using Swift.Umbraco.Business.Manager.Interfaces;
-using Swift.Umbraco.DAL.Petapoco;
+using Swift.Umbraco.Infrastructure.DAL.Petapoco;
 using Swift.Umbraco.Models.Domain;
 using Swift.Umbraco.Models.DTO;
 using Swift.Umbraco.Models.Mapping.Helper;
@@ -7,7 +7,7 @@ using Swift.Umbraco.Models.Utility;
 using System;
 using System.Linq;
 
-namespace Swift.Umbraco.DAL.Entities
+namespace Swift.Umbraco.Infrastructure.DAL.Entities
 {
     public class ParticipantManager : GenericManager<Participant>, IParticipantManager
     {
@@ -68,8 +68,8 @@ namespace Swift.Umbraco.DAL.Entities
                 participantEntity.ConsumerCrmId = crmConsumerId;
             }
 
-            participantEntity.LastParticipatedDate = participant.LastParticipatedDate;
-            participantEntity.LastWonDate = participant.LastWonDate;
+            participantEntity.LastParticipatedDate = participant.LastParticipatedDate.ToUtc();
+            participantEntity.LastWonDate = participant.LastWonDate.ToUtc();
             participantEntity.Email = participant.Email;
 
             return Update(participantEntity);

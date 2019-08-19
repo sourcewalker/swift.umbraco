@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Globalization;
 using System.Net;
 
-namespace Swift.Umbraco.Infrastructure.Captcha.Helper
+namespace Swift.Umbraco.Infrastructure.Features.Captcha.Helper
 {
     public static class GoogleRecaptchaHelper
     {

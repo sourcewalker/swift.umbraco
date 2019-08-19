@@ -1,7 +1,7 @@
-﻿using Swift.Umbraco.Infrastructure.InstantWin.Allocator.Algorithms;
-using Swift.Umbraco.Infrastructure.InstantWin.Interfaces;
+﻿using Swift.Umbraco.Infrastructure.Features.InstantWin.Allocator.Algorithms;
+using Swift.Umbraco.Infrastructure.Features.InstantWin.Interfaces;
 
-namespace Swift.Umbraco.Infrastructure.InstantWin.Allocator.Factory
+namespace Swift.Umbraco.Infrastructure.Features.InstantWin.Allocator.Factory
 {
     public static class AllocatorFactory
     {

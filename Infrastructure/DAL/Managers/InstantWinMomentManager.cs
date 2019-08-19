@@ -1,5 +1,5 @@
 ﻿using Swift.Umbraco.Business.Manager.Interfaces;
-using Swift.Umbraco.DAL.Petapoco;
+using Swift.Umbraco.Infrastructure.DAL.Petapoco;
 using Swift.Umbraco.Models.Domain;
 using Swift.Umbraco.Models.DTO;
 using Swift.Umbraco.Models.Mapping.Helper;
@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Swift.Umbraco.DAL.Entities
+namespace Swift.Umbraco.Infrastructure.DAL.Entities
 {
     public class InstantWinMomentManager : GenericManager<InstantWinMoment>, IInstantWinMomentManager
     {
@@ -30,7 +30,11 @@ namespace Swift.Umbraco.DAL.Entities
             //                            !moment.IsWon &&
             //                            moment.ActivationDate.ToUniversalTime() <= DateTime.UtcNow, _sqlProvider)
             //                .OrderBy<InstantWinMoment>(m => m.ActivationDate, _sqlProvider);
-            var sqlQuery = "SELECT * FROM InstantWinMoment WHERE IsWon = 'False' AND ActivationDate <= @0 ORDER BY ActivationDate";
+            var sqlQuery = "SELECT * " +
+                           "FROM InstantWinMoment " +
+                           "WHERE IsWon = 'False' " +
+                                "AND ActivationDate <= @0 " +
+                           "ORDER BY ActivationDate";
             return _database.Fetch<InstantWinMoment>(sqlQuery, DateTime.UtcNow).FirstOrDefault().toDto();
         }
 

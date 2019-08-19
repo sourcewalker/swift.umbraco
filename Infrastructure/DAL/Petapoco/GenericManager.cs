@@ -1,5 +1,6 @@
 ﻿using Swift.Umbraco.Business.Manager.Interfaces;
 using Swift.Umbraco.Models.Domain;
+using Swift.Umbraco.Models.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using Umbraco.Core;
 using Umbraco.Core.Persistence;
 using Umbraco.Core.Persistence.SqlSyntax;
 
-namespace Swift.Umbraco.DAL.Petapoco
+namespace Swift.Umbraco.Infrastructure.DAL.Petapoco
 {
     public class GenericManager<TEntityType> : IGenericManager<TEntityType> where TEntityType : EntityBase
     {
@@ -41,7 +42,7 @@ namespace Swift.Umbraco.DAL.Petapoco
         {
             var id = Guid.NewGuid();
             entity.Id = id;
-            entity.CreatedOn = DateTimeOffset.UtcNow;
+            entity.CreatedOn = DateTimeOffset.UtcNow.ToUtc();
             _database.Insert(entity);
             return id;
         }

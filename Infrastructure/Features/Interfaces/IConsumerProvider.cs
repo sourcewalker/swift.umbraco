@@ -1,8 +1,8 @@
-﻿using Swift.Umbraco.Infrastructure.ProCampaign.Models;
+﻿using Swift.Umbraco.Infrastructure.Features.ProCampaign.Models;
 using Swift.Umbraco.Models.DTO;
 using System.Threading.Tasks;
 
-namespace Swift.Umbraco.Infrastructure.Interfaces
+namespace Swift.Umbraco.Infrastructure.Features.Interfaces
 {
     public interface ICrmConsumerProvider
     {

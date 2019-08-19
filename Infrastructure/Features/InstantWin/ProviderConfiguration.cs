@@ -1,7 +1,7 @@
 ﻿using Models.DTO;
 using System;
 
-namespace Swift.Umbraco.Infrastructure.InstantWin
+namespace Swift.Umbraco.Infrastructure.Features.InstantWin
 {
     public struct ProviderConfiguration
     {
@@ -29,7 +29,7 @@ namespace Swift.Umbraco.Infrastructure.InstantWin
 
         public struct Allocator
         {
-            public static AllocatorAlgorithms algorithm = AllocatorAlgorithms.Fair;
+            public static AllocatorAlgorithms algorithm = AllocatorAlgorithms.Weighted;
         }
     }
 }

@@ -18,9 +18,9 @@ namespace Swift.Umbraco.Models.Domain
         public Consumer Consumer { get; set; }
 
         [NullSetting(NullSetting = NullSettings.Null)]
-        public DateTimeOffset LastWonDate { get; set; }
+        public DateTime LastWonDate { get; set; }
 
         [NullSetting(NullSetting = NullSettings.Null)]
-        public DateTimeOffset LastParticipatedDate { get; set; }
+        public DateTime LastParticipatedDate { get; set; }
     }
 }
