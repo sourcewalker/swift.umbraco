@@ -15,7 +15,7 @@ namespace Swift.Umbraco.Models.Domain
         [ResultColumn]
         public Country Country { get; set; }
 
-        [IndexAttribute(IndexTypes.NonClustered, Name = "IX_Consumer_EmailHash")]
+        [Index(IndexTypes.NonClustered, Name = "IX_Consumer_EmailHash")]
         public string EmailHash { get; set; }
 
         public string ConsumerId { get; set; }

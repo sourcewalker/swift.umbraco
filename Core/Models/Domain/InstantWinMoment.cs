@@ -14,7 +14,7 @@ namespace Swift.Umbraco.Models.Domain
         [ResultColumn]
         public Prize Prize { get; set; }
 
-        public DateTimeOffset ActivationDate { get; set; }
+        public DateTime ActivationDate { get; set; }
 
         public bool IsWon { get; set; }
     }

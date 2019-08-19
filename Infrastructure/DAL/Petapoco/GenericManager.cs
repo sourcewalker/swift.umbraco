@@ -1,5 +1,6 @@
 ﻿using Swift.Umbraco.Business.Manager.Interfaces;
 using Swift.Umbraco.Models.Domain;
+using Swift.Umbraco.Models.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace Swift.Umbraco.Infrastructure.DAL.Petapoco
         {
             var id = Guid.NewGuid();
             entity.Id = id;
-            entity.CreatedOn = DateTimeOffset.UtcNow;
+            entity.CreatedOn = DateTimeOffset.UtcNow.ToUtc();
             _database.Insert(entity);
             return id;
         }

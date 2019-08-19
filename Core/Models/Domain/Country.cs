@@ -1,6 +1,4 @@
-﻿using System;
-using Umbraco.Core.Persistence;
-using Umbraco.Core.Persistence.DatabaseAnnotations;
+﻿using Umbraco.Core.Persistence;
 
 namespace Swift.Umbraco.Models.Domain
 {

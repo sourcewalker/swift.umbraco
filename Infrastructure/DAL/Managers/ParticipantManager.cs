@@ -68,8 +68,8 @@ namespace Swift.Umbraco.Infrastructure.DAL.Entities
                 participantEntity.ConsumerCrmId = crmConsumerId;
             }
 
-            participantEntity.LastParticipatedDate = participant.LastParticipatedDate;
-            participantEntity.LastWonDate = participant.LastWonDate;
+            participantEntity.LastParticipatedDate = participant.LastParticipatedDate.ToUtc();
+            participantEntity.LastWonDate = participant.LastWonDate.ToUtc();
             participantEntity.Email = participant.Email;
 
             return Update(participantEntity);
