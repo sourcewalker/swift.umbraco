@@ -2217,7 +2217,6 @@
     <None Include="Properties\PublishProfiles\Production.pubxml" />
     <None Include="Properties\PublishProfiles\Staging.pubxml" />
     <Content Include="Views\Congratulations.cshtml" />
-    <Content Include="Views\EntryFormCheque.cshtml" />
     <Content Include="Views\ServerError.cshtml" />
     <Content Include="Views\EntryForm.cshtml" />
     <Content Include="Views\Participate.cshtml" />
